@@ -10,8 +10,9 @@
 		<string>SplashScreenScene</string>
 		<string>MainScreen</string>
 		<string>Store</string>
-		<string>MainGame</string>
 		<string>Artwork</string>
+		<string>Credits</string>
+		<string>MainGame</string>
 		<string>HelperClass</string>
 	</array>
 	<key>Dependencies</key>

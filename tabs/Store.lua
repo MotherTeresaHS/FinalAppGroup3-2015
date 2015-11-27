@@ -5,12 +5,12 @@ Store = class()
 local storeScreen
 
 function Store:init()
-    sprite("Dropbox:Red Back Circle Button")
-    moveBackButton = Button("Dropbox:Red Back Circle Button", vec2(50, 700))
+ --   sprite("Dropbox:Blue Back Circle Button")
+    moveBackButton = Button("Dropbox:Blue Back Circle Button", vec2(50, 700))
 end
 
 function Store:draw()
-   background(64, 126, 175, 255)
+   background(255, 255, 255, 255)
     moveBackButton:draw()
 end
 
