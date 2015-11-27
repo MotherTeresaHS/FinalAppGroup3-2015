@@ -20,6 +20,7 @@ function setup()
     Scene("art", Artwork)
     Scene("maingame", MainGame)
     Scene("store", Store)
+    Scene("credits", Credits)
     
     Scene.Change("splash")
 end

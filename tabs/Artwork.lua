@@ -1,15 +1,20 @@
 Artwork = class()
 
-function Artwork:init(x)
-    -- you can accept and set parameters here
-    self.x = x
+
+function Artwork:init()
+    sprite("Dropbox:Red Back Circle Button")
+    moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(50, 700))
 end
 
 function Artwork:draw()
     background(255, 255, 255, 255)
-    -- Codea does not automatically call this method
+    moveBackButton:draw()
 end
 
 function Artwork:touched(touch)
-    -- Codea does not automatically call this method
+   moveBackButton:touched(touch)
+    
+ if (moveBackButton.selected == true) then
+    Scene.Change("play")
+        end
 end

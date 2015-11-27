@@ -6,11 +6,11 @@ local mainGame
 function MainGame:init()
     --sprite("Dropbox:Red Back Circle Button")
    -- sprite("Dropbox:Blue Back Circle Button")
-    moveRedBackButton = Button("Dropbox:Blue Back Circle Button", vec2(51, 700))
+    moveRedBackButton = Button("Dropbox:Green Back Circle Button", vec2(51, 700))
 end
 
 function MainGame:draw()
-   background(194, 187, 42, 255)
+   background(255, 255, 255, 255)
     moveRedBackButton:draw()
 end
 
