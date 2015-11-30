@@ -1,8 +1,4 @@
 -- MainScreen
--- Created by: Mr Coxall
--- Created on: Nov 2014
--- Created for: ICS2O
--- This is the second scene
 
 MainScreen = class()
 --global to this whole file
@@ -12,14 +8,12 @@ local artwork
 local credits 
 
 function MainScreen:init()
---sprite("Dropbox:Blue Forward Circle Button")
---sprite("Dropbox:Green Forward Circle Button")
---sprite("Dropbox:Teal Forward Circle Button")
-  --  sprite("Documents:start")
+--These are the buttons in the main menu
 store = Button("Dropbox:SettingsR", vec2(950, 700))
 mainGame = Button("Dropbox:Green Forward Circle Button", vec2(500, 250))
 artwork = Button("Dropbox:Teal Forward Circle Button", vec2(940, 70))
 credits = Button("Dropbox:Purple Forward Circle Button", vec2(60, 700))
+    
 end
 
 function MainScreen:draw()
@@ -38,7 +32,8 @@ function MainScreen:draw()
 end
 
 function MainScreen:touched(touch)
-
+--what scene you go to when you press one of the buttons
+    
     store:touched(touch)
     mainGame:touched(touch)
     artwork:touched(touch)

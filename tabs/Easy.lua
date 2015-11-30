@@ -1,3 +1,4 @@
+--Easy
 Easy = class()
 
 function Easy:init()

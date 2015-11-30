@@ -1,3 +1,4 @@
+--Hard
 Hard = class()
 
 function Hard:init()

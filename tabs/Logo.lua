@@ -1,7 +1,8 @@
+--Logo
 Logo = class()
 
 function Logo:draw()
-    -- Codea does not automatically call this method
+    -- This is the game logo
     sprite("Dropbox:GameLogo", 512, 384, 1024, 768)
     print(ElapsedTime)
     print("End time is" .. startTime + 2)

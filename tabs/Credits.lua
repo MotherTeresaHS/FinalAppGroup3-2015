@@ -1,9 +1,9 @@
-
+--Credits
 
 Credits = class()
 
 function Credits:init()
-    --sprite("Dropbox:Purple Back Circle Button")
+    --This button should move back to the scene  you want to go to (main menu)
     moveBackButton = Button("Dropbox:Purple Back Circle Button", vec2(50, 700))
 end
 
@@ -17,6 +17,7 @@ function Credits:draw()
     font("HelveticaNeue-CondensedBold")
     textMode(CORNER)
     pushStyle()
+    --These are the names of the people who made the game
     text("Clients Names:", 420, 600)
     text("Isabella", 420, 550)
     text("Isabelle", 420, 500)
@@ -30,7 +31,7 @@ end
 
 function Credits:touched(touch)
    moveBackButton:touched(touch)
-    
+    --This scene should go to the main menu
  if (moveBackButton.selected == true) then
     Scene.Change("main")
         end

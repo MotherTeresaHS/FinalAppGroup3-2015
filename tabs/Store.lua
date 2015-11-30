@@ -5,8 +5,7 @@ Store = class()
 local storeScreen
 
 function Store:init()
- --   sprite("Dropbox:Blue Back Circle Button")
-    --sprite("Dropbox:SettingsR")
+ --This button moves back to the main menu
     moveBackButton = Button("Dropbox:Blue Back Circle Button", vec2(50, 700))
 end
 
@@ -17,7 +16,7 @@ end
 
 function Store:touched(touch)
     moveBackButton:touched(touch)
-    
+    --This goes to the main menu when you press the back button
  if (moveBackButton.selected == true) then
     Scene.Change("main")
         

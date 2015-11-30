@@ -15,6 +15,7 @@ function setup()
     pushStyle()
     
 -- Create the scenes (code for it)
+-- The scene names
     Scene("splash", SplashScreenScene)
     Scene("gamelogo", Logo)
     Scene("main", MainScreen)
@@ -22,6 +23,8 @@ function setup()
     Scene("maingame", MainGame)
     Scene("store", Store)
     Scene("credits", Credits)
+    
+    --LUCA these are the scenes you should code in...its the game
     Scene("easy", Easy)
     Scene("medium", Medium)
     Scene("hard", Hard)

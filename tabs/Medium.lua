@@ -1,3 +1,4 @@
+--Medium
 Medium = class()
 
 function Medium:init()
