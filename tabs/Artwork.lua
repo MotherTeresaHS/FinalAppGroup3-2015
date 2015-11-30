@@ -15,6 +15,6 @@ function Artwork:touched(touch)
    moveBackButton:touched(touch)
     
  if (moveBackButton.selected == true) then
-    Scene.Change("play")
+    Scene.Change("main")
         end
 end

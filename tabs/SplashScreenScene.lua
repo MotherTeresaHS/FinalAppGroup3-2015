@@ -14,7 +14,7 @@ function SplashScreenScene:draw()
     print(ElapsedTime)
     print("End time is" .. startTime + 2)
     if(startTime + 2 < ElapsedTime) then
-        Scene.Change("play")
+        Scene.Change("gamelogo")
         print("The end time is" .. ElapsedTime)
     end
 end

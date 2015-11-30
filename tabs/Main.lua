@@ -16,11 +16,15 @@ function setup()
     
 -- Create the scenes (code for it)
     Scene("splash", SplashScreenScene)
-    Scene("play", MainScreen)
+    Scene("gamelogo", Logo)
+    Scene("main", MainScreen)
     Scene("art", Artwork)
     Scene("maingame", MainGame)
     Scene("store", Store)
     Scene("credits", Credits)
+    Scene("easy", Easy)
+    Scene("medium", Medium)
+    Scene("hard", Hard)
     
     Scene.Change("splash")
 end
