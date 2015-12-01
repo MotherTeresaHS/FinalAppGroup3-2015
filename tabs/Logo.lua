@@ -1,4 +1,9 @@
 --Logo
+-- Created by: Margaret Venes
+-- Created on: Dec 2015
+-- Created for: ICS2O
+-- This is the game logo
+
 Logo = class()
 
 function Logo:draw()

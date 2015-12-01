@@ -1,4 +1,9 @@
 --Medium
+-- Created by: Margaret Venes
+-- Created on: Dec 2015
+-- Created for: ICS2O
+-- This is the medium level scene
+
 Medium = class()
 
 function Medium:init()

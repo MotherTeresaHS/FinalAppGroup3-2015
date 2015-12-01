@@ -1,4 +1,9 @@
 --MainGame
+-- Created by: Margaret Venes
+-- Created on: Dec 2015
+-- Created for: ICS2O
+-- This is the levels for the main game
+
 MainGame = class()
 
 local mainGame

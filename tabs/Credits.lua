@@ -1,4 +1,8 @@
 --Credits
+-- Created by: Margaret Venes
+-- Created on: Dec 2015
+-- Created for: ICS2O
+-- This is the credits scene
 
 Credits = class()
 

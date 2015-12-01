@@ -1,8 +1,8 @@
 -- Main
--- Created by: Mr Coxall
--- Created on: Nov 2014
+-- Created by: Margaret Venes
+-- Created on: Dec 2015
 -- Created for: ICS2O
--- This is the main starting point
+-- This is the code names for the scenes
 
 -- Use this function to perform your initial setup
 
@@ -19,9 +19,9 @@ function setup()
     Scene("splash", SplashScreenScene)
     Scene("gamelogo", Logo)
     Scene("main", MainScreen)
-    Scene("art", Artwork)
-    Scene("maingame", MainGame)
     Scene("store", Store)
+    Scene("maingame", MainGame)
+    Scene("settings", Settings)
     Scene("credits", Credits)
     
     --LUCA these are the scenes you should code in...its the game
