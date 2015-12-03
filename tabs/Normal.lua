@@ -1,16 +1,21 @@
---Medium
-Medium = class()
+--Normal
+-- Created by: Margaret Venes
+-- Created on: Dec 2015
+-- Created for: ICS2O
+-- This is the normal level scene
 
-function Medium:init()
+Normal = class()
+
+function Normal:init()
     -- you can accept and set parameters here
     self.x = x
 end
 
-function Medium:draw()
+function Normal:draw()
     -- Codea does not automatically call this method
     background(255, 255, 255, 255)
 end
 
-function Medium:touched(touch)
+function Normal:touched(touch)
     -- Codea does not automatically call this method
 end

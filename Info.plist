@@ -10,14 +10,15 @@
 		<string>SplashScreenScene</string>
 		<string>Logo</string>
 		<string>MainScreen</string>
+		<string>Settings</string>
 		<string>Store</string>
-		<string>Artwork</string>
 		<string>Credits</string>
 		<string>MainGame</string>
 		<string>Easy</string>
-		<string>Medium</string>
+		<string>Normal</string>
 		<string>Hard</string>
 		<string>HelperClass</string>
+		<string>Players</string>
 	</array>
 	<key>Dependencies</key>
 	<array>

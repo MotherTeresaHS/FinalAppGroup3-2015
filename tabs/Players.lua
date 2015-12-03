@@ -1,21 +1,19 @@
---Hard
+--Players
 -- Created by: Margaret Venes
 -- Created on: Dec 2015
 -- Created for: ICS2O
--- This is the hard level scene
+-- This is the number of players scene
+Players = class()
 
-Hard = class()
-
-function Hard:init()
+function Players:init()
     -- you can accept and set parameters here
-    self.x = x
+    
 end
 
-function Hard:draw()
+function Players:draw()
     -- Codea does not automatically call this method
-    background(255, 255, 255, 255)
 end
 
-function Hard:touched(touch)
+function Players:touched(touch)
     -- Codea does not automatically call this method
 end
