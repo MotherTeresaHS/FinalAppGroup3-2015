@@ -19,6 +19,8 @@
 		<string>Hard</string>
 		<string>HelperClass</string>
 		<string>Players</string>
+		<string>Achievements</string>
+		<string>Leaderboard</string>
 	</array>
 	<key>Dependencies</key>
 	<array>
