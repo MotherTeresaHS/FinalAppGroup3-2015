@@ -26,7 +26,7 @@ function setup()
     
     --LUCA these are the scenes you should code in...its the game
     Scene("easy", Easy)
-    Scene("medium", Medium)
+    Scene("medium", Normal)
     Scene("hard", Hard)
     
     Scene.Change("splash")

@@ -1,21 +1,19 @@
---Medium
+--Players
 -- Created by: Margaret Venes
 -- Created on: Dec 2015
 -- Created for: ICS2O
--- This is the medium level scene
+-- This is the number of players scene
+Players = class()
 
-Medium = class()
-
-function Medium:init()
+function Players:init()
     -- you can accept and set parameters here
-    self.x = x
+    
 end
 
-function Medium:draw()
+function Players:draw()
     -- Codea does not automatically call this method
-    background(255, 255, 255, 255)
 end
 
-function Medium:touched(touch)
+function Players:touched(touch)
     -- Codea does not automatically call this method
 end

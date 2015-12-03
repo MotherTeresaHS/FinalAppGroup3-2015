@@ -10,8 +10,9 @@ local mainGame
 
 function MainGame:init()
     --These are the diffulties leading to the game except the moveGreenBackButton, that just moves the button back to the main menu
+  -- sprite("Dropbox:Blue Forward Button")
     moveGreenBackButton = Button("Dropbox:Green Back Circle Button", vec2(51, 700))
-    easy = Button("Dropbox:easy", vec2(200, 500))
+    easy = Button("Dropbox:Blue Forward Button", vec2(200, 500))
     medium = Button("Dropbox:Green Forward Button", vec2(700, 500))
     hard = Button("Dropbox:Purple Forward Button", vec2(500, 200))
 
