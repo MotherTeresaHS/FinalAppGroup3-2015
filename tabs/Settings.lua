@@ -15,6 +15,13 @@ end
 
 function Settings:draw()
    background(255, 255, 255, 255)
+    fontSize(50)
+    stroke(0, 0, 0, 255)
+    fill(0, 0, 0, 255)
+    font("Futura-CondensedMedium")
+    textMode(CORNER)
+    pushStyle()
+    text("Settings", 400, 600)
     moveBackButton:draw()
 end
 
