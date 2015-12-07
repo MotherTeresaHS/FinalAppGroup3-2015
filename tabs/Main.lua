@@ -24,7 +24,13 @@ function setup()
     Scene("settings", Settings)
     Scene("credits", Credits)
     
-    --LUCA these are the scenes you should code in...its the game
+    --ANDRE AND LUCA this is the scene names for the achievements and leaderboard
+    
+    Scene("achieve", Achievements)
+    Scene("leader", Leaderboard)
+    
+    --LUCA these are the scenes you should code in...its the game difficulty
+    
     Scene("easy", Easy)
     Scene("medium", Normal)
     Scene("hard", Hard)

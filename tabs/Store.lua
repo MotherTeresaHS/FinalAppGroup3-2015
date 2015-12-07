@@ -15,10 +15,10 @@ function Store:draw()
     fontSize(50)
     stroke(0, 0, 0, 255)
     fill(0, 0, 0, 255)
-    font("HelveticaNeue-CondensedBold")
+    font("Futura-Medium")
     textMode(CORNER)
     pushStyle()
-    text("Store", 500, 600)
+    text("Store", 400, 600)
     moveBackButton:draw()
 end
 

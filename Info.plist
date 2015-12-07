@@ -17,10 +17,10 @@
 		<string>Easy</string>
 		<string>Normal</string>
 		<string>Hard</string>
-		<string>HelperClass</string>
 		<string>Players</string>
 		<string>Achievements</string>
 		<string>Leaderboard</string>
+		<string>HelperClass</string>
 	</array>
 	<key>Dependencies</key>
 	<array>

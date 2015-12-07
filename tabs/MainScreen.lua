@@ -17,22 +17,25 @@ settings = Button("Dropbox:SettingsR", vec2(940, 700))
 mainGame = Button("Dropbox:Green Forward Circle Button", vec2(500, 250))
 store = Button("Dropbox:Teal Forward Circle Button", vec2(940, 70))
 credits = Button("Dropbox:Purple Forward Circle Button", vec2(60, 700))
-    
+
 end
 
 function MainScreen:draw()
     
-  background(255, 255, 255, 255)
+    background(255, 255, 255, 255)
+    fontSize(70)
+    stroke(0, 0, 0, 255)
+    fill(0, 0, 0, 255)
+    font("Futura-CondensedExtraBold")
+    textMode(CORNER)
+    pushStyle()
+    text("$",25, 20)
+    
     store:draw()
     mainGame:draw()
     settings:draw()
     credits:draw()
-    fontSize()
-    stroke()
-    fill()
-    font()
-    textMode()
-    pushStyle()
+    
 end
 
 function MainScreen:touched(touch)
