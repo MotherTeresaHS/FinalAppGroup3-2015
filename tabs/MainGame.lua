@@ -16,9 +16,9 @@ function MainGame:init()
     easy = Button("Dropbox:Blue Forward Button", vec2(200, 500))
     medium = Button("Dropbox:Green Forward Button", vec2(780, 500))
     hard = Button("Dropbox:Purple Forward Button", vec2(500, 300))
-    store = Button("Dropbox:Teal Forward Circle Button", vec2(940, 70))
-    credits = Button("Dropbox:Purple Forward Circle Button", vec2(60, 700))
-    settings = Button("Dropbox:SettingsR", vec2(940, 700))
+    store = Button("Dropbox:Teal Forward Circle Button", vec2(960, 70))
+    credits = Button("Dropbox:Credits", vec2(43, 710))
+    settings = Button("Dropbox:SettingsButton-Resized", vec2(940, 700))
 end
 
 function MainGame:draw()

@@ -23,6 +23,7 @@ function setup()
     Scene("maingame", MainGame)
     Scene("settings", Settings)
     Scene("credits", Credits)
+    Scene("players", Players)
     
     --ANDRE AND LUCA this is the scene names for the achievements and leaderboard
     
