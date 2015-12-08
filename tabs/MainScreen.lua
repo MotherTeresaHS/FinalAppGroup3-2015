@@ -12,17 +12,21 @@ local store
 local credits 
 
 function MainScreen:init()
+    --sprite("Dropbox:MainMenuStartButton-Reszied")
 --These are the buttons in the main menu
-settings = Button("Dropbox:SettingsR", vec2(940, 700))
-mainGame = Button("Dropbox:Green Forward Circle Button", vec2(500, 250))
-store = Button("Dropbox:Teal Forward Circle Button", vec2(940, 70))
-credits = Button("Dropbox:Purple Forward Circle Button", vec2(60, 700))
+  --  sprite("Dropbox:MainMenuStartButton-Resized")
+    --sprite("Dropbox:Credits")
+settings = Button("Dropbox:SettingsButton-Resized", vec2(940, 700))
+mainGame = Button("Dropbox:MainMenuStartButton-Resized", vec2(540, 220))
+store = Button("Dropbox:Teal Forward Circle Button", vec2(960, 70))
+credits = Button("Dropbox:Credits", vec2(43, 710))
 
 end
 
 function MainScreen:draw()
     
     background(255, 255, 255, 255)
+    sprite("Dropbox:GameMainMenuPhotoshop",  512, 384, 1024, 768)
     fontSize(70)
     stroke(0, 0, 0, 255)
     fill(0, 0, 0, 255)
@@ -50,7 +54,7 @@ function MainScreen:touched(touch)
     Scene.Change("store")
 end        
  if (mainGame.selected == true) then 
-    Scene.Change("maingame")
+    Scene.Change("players")
 end            
 if (settings.selected == true) then
     Scene.Change("settings")
