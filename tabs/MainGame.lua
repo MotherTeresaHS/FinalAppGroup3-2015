@@ -9,13 +9,11 @@ MainGame = class()
 local mainGame
 
 function MainGame:init()
-    --These are the diffulties leading to the game except the moveGreenBackButton, that just moves the button back to the main menu
-  -- sprite("Dropbox:Blue Forward Button")
-   -- sprite("Dropbox:Red Forward Circle Button")
+    --These are the diffulties leading to the game 
     
-    easy = Button("Dropbox:Blue Forward Button", vec2(200, 500))
-    medium = Button("Dropbox:Green Forward Button", vec2(780, 500))
-    hard = Button("Dropbox:Purple Forward Button", vec2(500, 300))
+    easy = Button("Dropbox:EasyButton Photoshop", vec2(200, 500))
+    normal = Button("Dropbox:NormalButton Photoshop", vec2(780, 500))
+    hard = Button("Dropbox:Hard Button Photoshop", vec2(500, 300))
     store = Button("Dropbox:Teal Forward Circle Button", vec2(960, 70))
     credits = Button("Dropbox:Credits", vec2(43, 710))
     settings = Button("Dropbox:SettingsButton-Resized", vec2(940, 700))
@@ -23,7 +21,7 @@ end
 
 function MainGame:draw()
     
-   background(255, 255, 255, 255)
+   background(40, 29, 195, 255)
     fontSize(70)
     stroke(0, 0, 0, 255)
     fill(0, 0, 0, 255)
@@ -33,7 +31,7 @@ function MainGame:draw()
     text("$",25, 20)
     
     easy:draw()
-    medium:draw()
+    normal:draw()
     hard:draw()
     store:draw()
     credits:draw()
@@ -44,7 +42,7 @@ function MainGame:touched(touch)
 
     
     easy:touched(touch)
-    medium:touched(touch)
+    normal:touched(touch)
     hard:touched(touch)
     store:touched(touch)
     credits:touched(touch)
@@ -55,8 +53,8 @@ function MainGame:touched(touch)
         Scene.Change("easy")
     end
     --The medium button goes to the medium scene
-    if (medium.selected == true) then
-        Scene.Change("medium")
+    if (normal.selected == true) then
+        Scene.Change("normal")
     end
     
     --The hard button goes to the hard scene
@@ -65,15 +63,15 @@ function MainGame:touched(touch)
     end
     
     if (store.selected == true) then
-        Scene.Change("store")
+        Scene.Change("storemain")
     end
     
     if (credits.selected == true) then
-        Scene.Change("credits")
+        Scene.Change("creditsmain")
     end
     
     if (settings.selected == true) then
-        Scene.Change("settings")
+        Scene.Change("settingsmain")
     end
     
 end

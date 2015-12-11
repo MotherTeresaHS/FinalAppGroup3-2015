@@ -8,7 +8,7 @@ Players = class()
 function Players:init()
     -- you can accept and set parameters here
   --  sprite("Dropbox:Red Forward Circle Button")
-    next = Button("Dropbox:Red Forward Circle Button", vec2(500, 300))
+    next = Button("Dropbox:Red Forward Circle Button", vec2(500, 60))
     
 end
 

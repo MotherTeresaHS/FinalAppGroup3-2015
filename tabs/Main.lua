@@ -6,6 +6,8 @@
 
 -- Use this function to perform your initial setup
 
+points = {}
+
 function setup()
     supportedOrientations(LANDSCAPE_ANY)
     displayMode(FULLSCREEN)
@@ -24,6 +26,9 @@ function setup()
     Scene("settings", Settings)
     Scene("credits", Credits)
     Scene("players", Players)
+    Scene("creditsmain", CreditsMainMenu)
+    Scene("settingsmain", SettingsMainMenu)
+    Scene("storemain", StoreMainMenu)
     
     --ANDRE AND LUCA this is the scene names for the achievements and leaderboard
     

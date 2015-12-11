@@ -4,16 +4,14 @@
 -- Created for: ICS2O
 -- This is the settings
 
-Settings = class()
+SettingsMainMenu = class()
 
-local storeScreen
-
-function Settings:init()
+function SettingsMainMenu:init()
  --This button moves back to the main menu
     moveBackButton = Button("Dropbox:Blue Back Circle Button", vec2(50, 700))
 end
 
-function Settings:draw()
+function SettingsMainMenu:draw()
    background(255, 255, 255, 255)
     fontSize(50)
     stroke(0, 0, 0, 255)
@@ -25,11 +23,11 @@ function Settings:draw()
     moveBackButton:draw()
 end
 
-function Settings:touched(touch)
+function SettingsMainMenu:touched(touch)
     moveBackButton:touched(touch)
     --This goes to the main menu when you press the back button
  if (moveBackButton.selected == true) then
-    Scene.Change("main")
+    Scene.Change("maingame")
         
     end
 end
