@@ -5,6 +5,7 @@
 -- This is the main screen
 
 MainScreen = class()
+
 --global to this whole file
 local settings
 local mainGame
@@ -20,6 +21,7 @@ settings = Button("Dropbox:SettingsButton-Resized", vec2(940, 700))
 mainGame = Button("Dropbox:MainMenuStartButton-Resized", vec2(540, 220))
 store = Button("Dropbox:Teal Forward Circle Button", vec2(960, 70))
 credits = Button("Dropbox:Credits", vec2(43, 710))
+   -- sprite("Dropbox:Photo 16-11-2015, 9 08 31 PM", 9 08 31 PM"))
 
 end
 
@@ -50,15 +52,19 @@ function MainScreen:touched(touch)
     settings:touched(touch)
     credits:touched(touch)
     
- if (store.selected == true) then
+    
+if (store.selected == true) then
     Scene.Change("store")
 end        
- if (mainGame.selected == true) then 
+    
+if (mainGame.selected == true) then 
     Scene.Change("players")
-end            
+end  
+              
 if (settings.selected == true) then
     Scene.Change("settings")
-end                
+end              
+      
 if (credits.selected == true) then
     Scene.Change("credits")
         

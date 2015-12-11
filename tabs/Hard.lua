@@ -4,6 +4,8 @@
 -- Created for: ICS2O
 -- This is the hard level scene
 
+--points[1] = points[1] + 5
+
 Hard = class()
 
 function Hard:init()
@@ -13,7 +15,7 @@ end
 
 function Hard:draw()
     -- Codea does not automatically call this method
-    background(255, 255, 255, 255)
+    background(9, 86, 251, 255)
 end
 
 function Hard:touched(touch)

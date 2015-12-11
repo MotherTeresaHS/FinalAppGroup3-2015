@@ -1,17 +1,17 @@
---Credits
+--CreditsMainMenu
 -- Created by: Margaret Venes
 -- Created on: Dec 2015
 -- Created for: ICS2O
 -- This is the credits scene
 
-Credits = class()
+CreditsMainMenu = class()
 
-function Credits:init()
+function CreditsMainMenu:init()
     --This button should move back to the scene  you want to go to (main menu)
     moveBackButton = Button("Dropbox:Purple Back Circle Button", vec2(50, 700))
 end
 
-function Credits:draw()
+function CreditsMainMenu:draw()
     background(255, 255, 255, 255)
     moveBackButton:draw()
     
@@ -22,7 +22,7 @@ function Credits:draw()
     textMode(CENTER)
     pushStyle()
     --These are the names of the people who made the game
-   text("Clients Names:", 500, 650)
+    text("Clients Names:", 500, 650)
     text("Isabella", 500, 600)
     text("Isabelle", 500, 550)
     text("Jacob", 500, 500)
@@ -32,12 +32,12 @@ function Credits:draw()
     text("Andre", 500, 300)
     text("Margie", 500, 250)
     text("Music: John Patraboy", 500, 150)
-end
+end 
 
-function Credits:touched(touch)
+function CreditsMainMenu:touched(touch)
    moveBackButton:touched(touch)
     --This scene should go to the main menu
  if (moveBackButton.selected == true) then
-    Scene.Change("main")
+    Scene.Change("maingame")
         end
 end

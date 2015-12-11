@@ -7,9 +7,12 @@
 	<key>Buffer Order</key>
 	<array>
 		<string>Main</string>
-		<string>SplashScreenScene</string>
-		<string>Logo</string>
 		<string>MainScreen</string>
+		<string>CreditsMainMenu</string>
+		<string>SettingsMainMenu</string>
+		<string>SplashScreenScene</string>
+		<string>StoreMainMenu</string>
+		<string>Logo</string>
 		<string>Settings</string>
 		<string>Store</string>
 		<string>Credits</string>
