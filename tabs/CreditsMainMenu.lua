@@ -12,7 +12,7 @@ function CreditsMainMenu:init()
 end
 
 function CreditsMainMenu:draw()
-    background(255, 255, 255, 255)
+    background(161, 0, 255, 255)
     moveBackButton:draw()
     
     fontSize(50)

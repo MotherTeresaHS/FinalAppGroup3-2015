@@ -12,7 +12,7 @@ function Credits:init()
 end
 
 function Credits:draw()
-    background(255, 255, 255, 255)
+    background(44, 48, 141, 255)
     moveBackButton:draw()
     
     fontSize(50)

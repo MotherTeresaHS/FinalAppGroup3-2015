@@ -8,7 +8,7 @@ Logo = class()
 
 function Logo:draw()
     -- This is the game logo
-    sprite("Dropbox:GameLogo", 512, 384, 1024, 768)
+    sprite("Dropbox:GameLogo Photshop", 512, 384, 1024, 768)
     print(ElapsedTime)
     print("End time is" .. startTime + 2)
     if(startTime + 2 < ElapsedTime) then

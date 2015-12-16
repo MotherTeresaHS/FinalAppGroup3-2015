@@ -14,7 +14,7 @@ function Settings:init()
 end
 
 function Settings:draw()
-   background(255, 255, 255, 255)
+   background(215, 192, 12, 255)
     fontSize(50)
     stroke(0, 0, 0, 255)
     fill(0, 0, 0, 255)

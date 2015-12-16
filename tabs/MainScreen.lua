@@ -13,15 +13,11 @@ local store
 local credits 
 
 function MainScreen:init()
-    --sprite("Dropbox:MainMenuStartButton-Reszied")
---These are the buttons in the main menu
-  --  sprite("Dropbox:MainMenuStartButton-Resized")
-    --sprite("Dropbox:Credits")
-settings = Button("Dropbox:SettingsButton-Resized", vec2(940, 700))
-mainGame = Button("Dropbox:MainMenuStartButton-Resized", vec2(540, 220))
+
+settings = Button("Dropbox:Settings", vec2(940, 700))
+mainGame = Button("Dropbox:MainMenuStartButton Resized", vec2(540, 220))
 store = Button("Dropbox:Teal Forward Circle Button", vec2(960, 70))
 credits = Button("Dropbox:Credits", vec2(43, 710))
-   -- sprite("Dropbox:Photo 16-11-2015, 9 08 31 PM", 9 08 31 PM"))
 
 end
 
