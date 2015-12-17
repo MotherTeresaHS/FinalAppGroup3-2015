@@ -6,7 +6,9 @@
 
 -- Use this function to perform your initial setup
 
-points = {}
+difficultyLevel = nil
+points = nil
+playersName = {}
 
 function setup()
     supportedOrientations(LANDSCAPE_ANY)
@@ -29,6 +31,7 @@ function setup()
     Scene("creditsmain", CreditsMainMenu)
     Scene("settingsmain", SettingsMainMenu)
     Scene("storemain", StoreMainMenu)
+    Scene("levelselect", LevelSelect)
     
     --ANDRE AND LUCA this is the scene names for the achievements and leaderboard
     
