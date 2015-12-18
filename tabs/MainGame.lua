@@ -10,7 +10,7 @@ local mainGame
 
 function MainGame:init()
     --These are the diffulties leading to the game 
-    
+  --  sprite("Dropbox:MainMenuStartButton Resized")
     easy = Button("Dropbox:EasyButton Photoshop", vec2(200, 500))
     normal = Button("Dropbox:NormalButton Photoshop", vec2(780, 500))
     hard = Button("Dropbox:Hard Button Photoshop", vec2(500, 300))
@@ -54,7 +54,7 @@ function MainGame:touched(touch)
     end
     --The medium button goes to the medium scene
     if (normal.selected == true) then
-        Scene.Change("normal")
+        Scene.Change("medium")
     end
     
     --The hard button goes to the hard scene

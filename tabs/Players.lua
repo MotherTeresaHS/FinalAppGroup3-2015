@@ -4,12 +4,12 @@
 -- Created for: ICS2O
 -- This is the number of players scene
 Players = class()
-
+local playerOne
 function Players:init()
     -- you can accept and set parameters here
   --  sprite("Dropbox:Red Forward Circle Button")
     next = Button("Dropbox:Red Forward Circle Button", vec2(500, 60))
-    
+    playerOne = Button ("Dropbox:Red Forward Circle Button",vec2())
 end
 
 function Players:draw()

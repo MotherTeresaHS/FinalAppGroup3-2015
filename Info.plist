@@ -18,8 +18,15 @@
 		<string>Credits</string>
 		<string>MainGame</string>
 		<string>Easy</string>
+		<string>EasyP2</string>
 		<string>Normal</string>
 		<string>Hard</string>
+		<string>Correct</string>
+		<string>NotRight</string>
+		<string>Correct2</string>
+		<string>NotRight2</string>
+		<string>Correct3</string>
+		<string>NotRight3</string>
 		<string>Players</string>
 		<string>Achievements</string>
 		<string>Leaderboard</string>

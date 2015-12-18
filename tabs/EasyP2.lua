@@ -1,12 +1,4 @@
---Normal
--- Created by: Margaret Venes
--- Created on: Dec 2015
--- Created for: ICS2O
--- This is the normal level scene
-
---points[1] = points[1] + 5
-
-Normal = class()
+EasyP2 = class()
 
 local answer
 local firstNumber
@@ -16,24 +8,22 @@ local mathOperationText
 local addingButton
 local buttonAnswer
 local subtractButton
-local multiplyButton
-
-function Normal:init()
+ 
+function EasyP2:init()
     -- you can accept and set parameters here
-   -- sprite("Dropbox:Blue Cancel Button")
-  
+--sprite("Dropbox:FunMath Subtraction Sign")
+ --   sprite("Dropbox:FunMath Plus Sign")
     moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(50, 700))
     addingButton = Button("Dropbox:FunMath Plus Sign",vec2(500,100))
     subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(100,100))
-   multiplyButton = Button("Dropbox:FunMath Multiplication Sign",vec2(650,100)) 
     
-    firstNumber=math.random(45)
+    firstNumber=math.random(10)
     print("firstNumbber ",firstNumber)
     
-    secNumber=math.random(45)
+    secNumber=math.random(10)
     print("secNumber ",secNumber)
     
-    op=math.random(3)
+    op=math.random(2)
     print("op ",op)
     if(op == 1 )then
         mathOperationText = "+"
@@ -44,21 +34,13 @@ function Normal:init()
         answer=firstNumber-secNumber 
         if (firstNumber>secNumber)then
             answer= secNumber-firstNumber
-    else  answer=firstNumber-secNumber
-            end
-   elseif (op == 3)then
-        mathOperationText = "*"
-        answer=firstNumber*secNumber 
-        if (firstNumber>secNumber)then
-            answer= secNumber*firstNumber
-    else  answer=firstNumber*secNumber         
+    else  answer=firstNumber-secNumber 
     end
 end
 end
-
-function Normal:draw()
+function EasyP2:draw()
     -- Codea does not automatically call this method
-    background(142, 255, 0, 255)
+    background(242, 16, 249, 255)
     moveBackButton:draw()
     print(answer)
     print(firstNumber)
@@ -72,43 +54,44 @@ function Normal:draw()
     text(answer,600,600)
     addingButton:draw()
     subtractButton:draw()
-    multiplyButton:draw()
+    print(ElapsedTime)
+    print("End time is" .. startTime + 3)
+    if(startTime + 200 < ElapsedTime) then
+        text("cange to player two",200,700)
+        print("The end time is" .. ElapsedTime)
+    end
 end
 
-function Normal:touched(touch)
-moveBackButton:touched(touch)
+function EasyP2:touched(touch)
+    -- Codea does not automatically call this method
+    moveBackButton:touched(touch)
     addingButton:touched(touch) 
     subtractButton:touched(touch)
-    multiplyButton:touched(touch)
     
     if(addingButton.selected == true) then
         if (mathOperationText == "+")then
             print("corect")
-            Scene.Change("right2")     
+            Scene.Change("right")     
         else
             print("wrong") 
-            Scene.Change("wrong2")
+            Scene.Change("wrong")
         end
     end
     if(subtractButton.selected == true) then
         if (mathOperationText == "-")then
-            Scene.Change("right2")     
+            Scene.Change("right")     
         else
-            Scene.Change("wrong2")
+            Scene.Change("wrong")
         end
     end
+   -- elseif (subtractButton.selected == true and mathOperationText == "-")then
+        --print"correct"
+      --  Scene.Change("right")
+    --end
     
-      if(multiplyButton.selected == true) then
-        if (mathOperationText == "*")then
-            Scene.Change("right2")     
-        else
-            Scene.Change("wrong2")
-        end
-    end 
         
     if(moveBackButton.selected == true) then
         Scene.Change("maingame")
     end
     
-
 end

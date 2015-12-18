@@ -5,12 +5,13 @@
 -- This is the code names for the scenes
 
 -- Use this function to perform your initial setup
-
-points = {}
-
+difficultyLevel = nil
+points = (nil)
+addingOperation = ('+')
+subtractOperation =("-")
 function setup()
     supportedOrientations(LANDSCAPE_ANY)
-    displayMode(FULLSCREEN)
+  --  displayMode(FULLSCREEN)
     noFill()
     noSmooth()
     noStroke()
@@ -40,7 +41,12 @@ function setup()
     Scene("easy", Easy)
     Scene("medium", Normal)
     Scene("hard", Hard)
-    
+    Scene("right",Correct)
+    Scene("wrong",NotRight)
+    Scene("right2",Correct2)
+    Scene("wrong2",NotRight2)
+    Scene("wrong3",NotRight3)
+    Scene("right3",Correct3)
     Scene.Change("splash")
 end
 
