@@ -14,9 +14,6 @@ function MainGame:init()
     easy = Button("Dropbox:EasyButton Photoshop", vec2(200, 500))
     normal = Button("Dropbox:NormalButton Photoshop", vec2(780, 500))
     hard = Button("Dropbox:Hard Button Photoshop", vec2(500, 300))
-    store = Button("Dropbox:Teal Forward Circle Button", vec2(960, 70))
-    credits = Button("Dropbox:Credits", vec2(43, 600))
-    settings = Button("Dropbox:Settings", vec2(940, 700))
 end
 
 function MainGame:draw()
@@ -28,14 +25,11 @@ function MainGame:draw()
     font("Futura-CondensedExtraBold")
     textMode(CORNER)
     pushStyle()
-    text("$",25, 20)
+    
     back:draw()
     easy:draw()
     normal:draw()
     hard:draw()
-    store:draw()
-    credits:draw()
-    settings:draw()
 end
 
 function MainGame:touched(touch)
@@ -44,38 +38,23 @@ function MainGame:touched(touch)
     easy:touched(touch)
     normal:touched(touch)
     hard:touched(touch)
-    store:touched(touch)
-    credits:touched(touch)
-    settings:touched(touch)
     back:touched(touch)
     
     --The easy button goes to the easy scene 
      if (easy.selected == true) then
-        difficultyLevel = "easy"
-        Scene.Change("levelselect")
+       -- difficultyLevel = "easy"
+        Scene.Change("easy")
     end
     --The medium button goes to the medium scene
     if (normal.selected == true) then
-        difficultyLevel = "normal"
-        Scene.Change("levelselect")
+      --  difficultyLevel = "normal"
+        Scene.Change("medium")
     end
     
     --The hard button goes to the hard scene
     if (hard.selected == true) then
-        difficultyLevel = "hard"
-        Scene.Change("levelselect")
-    end
-    
-    if (store.selected == true) then
-        Scene.Change("storemain")
-    end
-    
-    if (credits.selected == true) then
-        Scene.Change("creditsmain")
-    end
-    
-    if (settings.selected == true) then
-        Scene.Change("settingsmain")
+      --  difficultyLevel = "hard"
+        Scene.Change("hard")
     end
     
     if (back.selected == true) then

@@ -44,12 +44,32 @@ function Players:touched(touch)
     -- Codea does not automatically call this method
     next:touched(touch)
     back:touched(touch)
-    
+    onePlayer:touched(touch)
+    twoPlayers:touched(touch)
+    threePlayers:touched(touch)
+    fourPlayers:touched(touch)
+
     if (next.selected == true) then
     Scene.Change("maingame")
     end
         
     if (back.selected == true) then
      Scene.Change("main")
+    end
+    
+    if (onePlayer.selected == true) then
+        Scene.Change("oneplayer")
+    end
+    
+    if (twoPlayers.selected == true) then
+        Scene.Change("twoplayers")
+    end
+    
+    if(threePlayers.selected == true) then
+        Scene.Change("threeplayers")
+    end
+    
+    if(fourPlayers.selected == true) then
+        Scene.Change("fourplayers")
     end
 end

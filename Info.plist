@@ -6,13 +6,16 @@
 	<string>Unknown</string>
 	<key>Buffer Order</key>
 	<array>
+		<string>correct</string>
+		<string>Correct2</string>
+		<string>Correct3</string>
+		<string>notRight</string>
+		<string>NotRight2</string>
+		<string>NotRight3</string>
+		<string>SplashScreenScene</string>
+		<string>Logo</string>
 		<string>Main</string>
 		<string>MainScreen</string>
-		<string>CreditsMainMenu</string>
-		<string>SettingsMainMenu</string>
-		<string>SplashScreenScene</string>
-		<string>StoreMainMenu</string>
-		<string>Logo</string>
 		<string>Settings</string>
 		<string>Store</string>
 		<string>Credits</string>
@@ -22,8 +25,13 @@
 		<string>Normal</string>
 		<string>Hard</string>
 		<string>Players</string>
-		<string>Achievements</string>
+		<string>OnePlayer</string>
+		<string>Tutorial</string>
+		<string>TwoPlayers</string>
+		<string>ThreePlayers</string>
+		<string>FourPlayers</string>
 		<string>Leaderboard</string>
+		<string>Achievements</string>
 		<string>HelperClass</string>
 	</array>
 	<key>Dependencies</key>

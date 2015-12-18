@@ -17,7 +17,7 @@ function Leaderboard:draw()
     stroke(0, 0, 0, 255)
     fill(0, 0, 0, 255)
     font("Copperplate-Bold")
-    textMode(CORNER)
+    textMode(CENTER)
     pushStyle()
     text("Leaderboard", 512, 670)
 end

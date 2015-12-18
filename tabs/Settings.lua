@@ -10,7 +10,11 @@ local storeScreen
 
 function Settings:init()
  --This button moves back to the main menu
+   -- sprite("Dropbox:No Sound Icon")
+   -- sprite("Dropbox:Blue Move Scene Forward Button")
     moveBackButton = Button("Dropbox:Blue Back Circle Button", vec2(50, 700))
+    onButton = Button("Dropbox:Blue Move Scene Forward Button", vec2(250, 500))
+    offButton = Button("Dropbox:No Sound Icon", vec2(700, 500))
 end
 
 function Settings:draw()
@@ -18,11 +22,18 @@ function Settings:draw()
     fontSize(50)
     stroke(0, 0, 0, 255)
     fill(0, 0, 0, 255)
-    font("Futura-CondensedMedium")
-    textMode(CORNER)
+    fontSize(50)
+    stroke(0, 0, 0, 255)
+    fill(0, 0, 0, 255)
+    font("Futura-Medium")
+    textMode(CENTER)
     pushStyle()
     text("Settings", 400, 600)
     moveBackButton:draw()
+    onButton:draw()
+    offButton:draw()
+    text("ON", 150, 500)
+    text("OFF", 600, 500)
 end
 
 function Settings:touched(touch)
