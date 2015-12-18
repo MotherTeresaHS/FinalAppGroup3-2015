@@ -8,7 +8,6 @@
 
 difficultyLevel = nil
 points = nil
-playersName = {}
 
 function setup()
     supportedOrientations(LANDSCAPE_ANY)
@@ -32,6 +31,17 @@ function setup()
     Scene("settingsmain", SettingsMainMenu)
     Scene("storemain", StoreMainMenu)
     Scene("levelselect", LevelSelect)
+    Scene("oneplayer", OnePlayer)
+    Scene("twoplayers", TwoPlayers)
+    Scene("threeplayers", ThreePlayers)
+    Scene("fourplayers", FourPlayers)
+    Scene("tutorial", Tutorial)
+    Scene("right",correct)
+    Scene("right2",Correct2)
+    Scene("right3",Correct3)
+    Scene("wrong",notRight)
+    Scene("wrong2",NotRight2)
+    Scene("wrong3",NotRight3)
     
     --ANDRE AND LUCA this is the scene names for the achievements and leaderboard
     
