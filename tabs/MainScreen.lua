@@ -14,10 +14,10 @@ local credits
 
 function MainScreen:init()
    -- sprite("Dropbox:Red Forward Circle Button")
-sprite("Dropbox:Settings")
+sprite("Dropbox:Shop Icon")
 settings = Button("Dropbox:Settings", vec2(940, 700))
 mainGame = Button("Dropbox:MainMenuStartButton Resized", vec2(540, 250))
-store = Button("Dropbox:Teal Forward Circle Button", vec2(960, 70))
+store = Button("Dropbox:Shop Icon", vec2(960, 70))
 credits = Button("Dropbox:Credits", vec2(43, 710))
 tutorial = Button("Dropbox:Red Forward Circle Button", vec2(690, 120))
 

@@ -8,6 +8,10 @@
 
 difficultyLevel = nil
 points = nil
+amountofcoins = 900
+amountofhints = 0
+amountoftimeboost = 0
+amountofpointboost = 0 
 
 function setup()
     supportedOrientations(LANDSCAPE_ANY)
