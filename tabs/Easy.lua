@@ -24,8 +24,8 @@ function Easy:init()
 --sprite("Dropbox:FunMath Subtraction Sign")
  --   sprite("Dropbox:FunMath Plus Sign")
     moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(50, 700))
-    addingButton = Button("Dropbox:FunMath Plus Sign",vec2(500,100))
-    subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(100,100))
+    addingButton = Button("Dropbox:FunMath Plus Sign",vec2(400,100))
+    subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(600,100))
     
     firstNumber=math.random(10)
     print("firstNumbber ",firstNumber)
@@ -45,23 +45,24 @@ function Easy:init()
         if (firstNumber>secNumber)then
             answer= secNumber-firstNumber
     else  answer=firstNumber-secNumber 
+            
     end
 end
 end
 function Easy:draw()
     -- Codea does not automatically call this method
-    background(242, 16, 249, 255)
+    background(255, 255, 255, 255)
     moveBackButton:draw()
     print(answer)
     print(firstNumber)
     print(secNumber)
     print(op)
-    fontSize(40)
-    fill(255, 254, 0, 255)
-    text(firstNumber,400,600)
-    text(secNumber,500,600)
+    fontSize(80)
+    fill(0, 0, 0, 255)
+    text(firstNumber,300,600)
+    text(secNumber,450,600)
     text("=",550,600)
-    text(answer,600,600)
+    text(answer,650,600)
     addingButton:draw()
     subtractButton:draw()
 end
@@ -74,18 +75,21 @@ function Easy:touched(touch)
     
     if(addingButton.selected == true) then
         if (mathOperationText == "+")then
-            print("corect")
-            Scene.Change("right")     
+            print("correct")
+            Scene.Change("correcteasy")
+           -- points[1] = points[1]+5    
+
         else
             print("wrong") 
-            Scene.Change("wrong")
+            Scene.Change("wrongeasy")
+           -- points[1] = points[1]-5
         end
     end
     if(subtractButton.selected == true) then
         if (mathOperationText == "-")then
-            Scene.Change("right")     
+            Scene.Change("correcteasy")     
         else
-            Scene.Change("wrong")
+            Scene.Change("wrongeasy")
         end
     end
    -- elseif (subtractButton.selected == true and mathOperationText == "-")then

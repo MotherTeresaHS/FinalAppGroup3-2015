@@ -1,4 +1,4 @@
---Hard
+-- Hard
 -- Created by: Margaret Venes
 -- Created on: Dec 2015
 -- Created for: ICS2O
@@ -21,17 +21,12 @@ local divisionButton
 
 
 function Hard:init()
-    -- you can accept and set parameters here
-  --  sprite("Dropbox:Blue Pause Button")
-  --  sprite("Dropbox:FunMath Division Sign")
- ---   sprite("Dropbox:FunMath Plus Sign")
-  --  sprite("Dropbox:FunMath Subtraction Sign")
-   -- sprite("Dropbox:FunMath Multiplication Sign")
+    
     moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(50, 700))
-    addingButton = Button("Dropbox:FunMath Plus Sign",vec2(500,100))
-    subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(100,100))
-   multiplyButton = Button("Dropbox:FunMath Multiplication Sign",vec2(650,100)) 
-    divisionButton = Button("Dropbox:FunMath Division Sign",vec2(750,100))
+    addingButton = Button("Dropbox:FunMath Plus Sign",vec2(250,100))
+    subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(400,100))
+    multiplyButton = Button("Dropbox:FunMath Multiplication Sign",vec2(550,100)) 
+    divisionButton = Button("Dropbox:FunMath Division Sign",vec2(700,100))
     
     firstNumber=math.random(99)
     print("firstNumbber ",firstNumber)
@@ -70,23 +65,23 @@ end
 
 function Hard:draw()
     -- Codea does not automatically call this method
-    background(9, 86, 251, 255)
-    background(142, 255, 0, 255)
+    
+    background(255, 255, 255, 255)
     moveBackButton:draw()
     print(answer)
     print(firstNumber)
     print(secNumber)
     print(op)
-    fontSize(40)
-    fill(255, 254, 0, 255)
-    text(firstNumber,400,600)
-    text(secNumber,500,600)
+    fontSize(60)
+    fill(0, 0, 0, 255)
+    text(firstNumber,300,600)
+    text(secNumber,450,600)
     text("=",550,600)
-    text(answer,600,600)
+    text(answer,650,600)
     addingButton:draw()
     subtractButton:draw()
     multiplyButton:draw()
-  divisionButton:draw()
+    divisionButton:draw()
 end
 
 function Hard:touched(touch)
@@ -99,33 +94,33 @@ function Hard:touched(touch)
         
     if(addingButton.selected == true) then
         if (mathOperationText == "+")then
-            print("corect")
-            Scene.Change("right3")     
+            print("correct")
+            Scene.Change("correcthard")     
         else
             print("wrong") 
-            Scene.Change("wrong3")
+            Scene.Change("wronghard")
         end
     end
     if(subtractButton.selected == true) then
         if (mathOperationText == "-")then
-            Scene.Change("right3")     
+            Scene.Change("correcthard")     
         else
-            Scene.Change("wrong3")
+            Scene.Change("wronghard")
         end
     end
     
       if(multiplyButton.selected == true) then
         if (mathOperationText == "*")then
-            Scene.Change("right3")     
+            Scene.Change("correcthard")     
         else
-            Scene.Change("wrong3")
+            Scene.Change("wronghard")
         end
     end 
     if(divisionButton.selected == true) then
         if (mathOperationText == "/")then
-            Scene.Change("right3")     
+            Scene.Change("correcthard")     
         else
-            Scene.Change("wrong3")
+            Scene.Change("wronghard")
         end
     end     
         

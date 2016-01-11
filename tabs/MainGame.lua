@@ -48,7 +48,7 @@ function MainGame:touched(touch)
     --The medium button goes to the medium scene
     if (normal.selected == true) then
       --  difficultyLevel = "normal"
-        Scene.Change("medium")
+        Scene.Change("normal")
     end
     
     --The hard button goes to the hard scene
