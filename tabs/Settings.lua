@@ -39,9 +39,16 @@ end
 
 function Settings:touched(touch)
     moveBackButton:touched(touch)
+    onButton:touched(touch)
+    offButton:touched(touch)
     --This goes to the main menu when you press the back button
- if (moveBackButton.selected == true) then
+    if (moveBackButton.selected == true) then
     Scene.Change("main")
-        
+    elseif(onButton.selected == true) then
+        music("A Hero's Quest:Battle")
+        musicOff = false
+    elseif(offButton.selected == true) then
+        music.stop()
+        musicOff = true 
     end
 end

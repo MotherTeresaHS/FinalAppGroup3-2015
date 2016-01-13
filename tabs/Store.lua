@@ -12,17 +12,17 @@ local buyHint
 local buyTimeboost
 local buyPointBoost
 
-sprite()
+--sprite("Dropbox:Point Boost Button")
 function Store:init()
 --This button moves back to the main menu
    moveBackButton = Button("Dropbox:Blue Back Circle Button", vec2(60, 700))
-   buyHint = Button("Dropbox:Hints Button", vec2(470, 500))
+   buyHint = Button("Dropbox:Hints Button", vec2(470, 480))
    buyTimeboost = Button("Dropbox:Time Boost Button", vec2(470, 350))
-   buyPointBoost = Button("Dropbox:Point Boost Button", vec2(470, 200))
+   buyPointBoost = Button("Dropbox:Point Boost Button", vec2(470, 225))
 end
 
 function Store:draw()
-  background(0, 172, 255, 255)
+  background(255, 255, 255, 255)
    moveBackButton:draw()
    buyHint:draw()
    buyTimeboost:draw()
@@ -65,13 +65,8 @@ function Store:draw()
    fill(0, 0, 0, 255)
    fontSize(60)
    text("Upgrades", 500, 590)
-
-   fill(0, 172, 255, 255)
-   rect(0, 0, 220, 105)
-   fill(0, 0, 0, 255)
-   fontSize(60)
-   text("$", 100, 50)
-   text(amountofcoins, 500, 50)
+   
+   text("$"..amountofcoins, 500, 50)
 
 end
 

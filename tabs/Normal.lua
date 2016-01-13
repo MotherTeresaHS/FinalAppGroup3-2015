@@ -41,10 +41,16 @@ function Normal:init()
      
     elseif (op == 2)then
         mathOperationText = "-"
-        answer=firstNumber-secNumber 
-        if (firstNumber>secNumber)then
-            answer= secNumber-firstNumber
-    else  answer=firstNumber-secNumber
+        answer = firstNumber - secNumber 
+        if (answer < 0)then
+            print("negative number")
+            print (firstNumber .. " " .. secNumber)
+            local tempNumber
+            tempNumber = secNumber
+            secNumber = firstNumber
+            firstNumber = tempNumber
+            answer = firstNumber - secNumber
+            print(firstNumber .. secNumber)
             end
    elseif (op == 3)then
         mathOperationText = "*"
@@ -70,6 +76,7 @@ function Normal:draw()
     text(secNumber,450,600)
     text("=",550,600)
     text(answer,650,600)
+    text(amountofcoins,850,700)
     addingButton:draw()
     subtractButton:draw()
     multiplyButton:draw()
@@ -85,6 +92,7 @@ function Normal:touched(touch)
         if (mathOperationText == "+")then
             print("correct")
             Scene.Change("correctnormal")     
+            amountofcoins = amountofcoins + 10
         else
             print("wrong") 
             Scene.Change("wrongnormal")
@@ -92,7 +100,8 @@ function Normal:touched(touch)
     end
     if(subtractButton.selected == true) then
         if (mathOperationText == "-")then
-            Scene.Change("correctnormal")     
+            Scene.Change("correctnormal")  
+            amountofcoins = amountofcoins + 10   
         else
             Scene.Change("wrongnormal")
         end
@@ -100,7 +109,8 @@ function Normal:touched(touch)
     
       if(multiplyButton.selected == true) then
         if (mathOperationText == "*")then
-            Scene.Change("correctnormal")     
+            Scene.Change("correctnormal")   
+              amountofcoins = amountofcoins + 10
         else
             Scene.Change("wrongnormal")
         end

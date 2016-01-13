@@ -41,14 +41,22 @@ function Easy:init()
      
     elseif (op == 2)then
         mathOperationText = "-"
-        answer=firstNumber-secNumber 
-        if (firstNumber>secNumber)then
-            answer= secNumber-firstNumber
-    else  answer=firstNumber-secNumber 
+        answer = firstNumber - secNumber 
+        if (answer < 0)then
+            print("negative number")
+            print (firstNumber .. " " .. secNumber)
+            local tempNumber
+            tempNumber = secNumber
+            secNumber = firstNumber
+            firstNumber = tempNumber
+            answer = firstNumber - secNumber
+            print(firstNumber .. secNumber)
+        end
             
     end
 end
-end
+
+
 function Easy:draw()
     -- Codea does not automatically call this method
     background(255, 255, 255, 255)
@@ -63,6 +71,7 @@ function Easy:draw()
     text(secNumber,450,600)
     text("=",550,600)
     text(answer,650,600)
+    text(amountofcoins,850,700)
     addingButton:draw()
     subtractButton:draw()
 end
@@ -78,7 +87,7 @@ function Easy:touched(touch)
             print("correct")
             Scene.Change("correcteasy")
            -- points[1] = points[1]+5    
-
+amountofcoins = amountofcoins + 10
         else
             print("wrong") 
             Scene.Change("wrongeasy")
@@ -87,7 +96,8 @@ function Easy:touched(touch)
     end
     if(subtractButton.selected == true) then
         if (mathOperationText == "-")then
-            Scene.Change("correcteasy")     
+            Scene.Change("correcteasy")    
+             amountofcoins = amountofcoins + 10
         else
             Scene.Change("wrongeasy")
         end

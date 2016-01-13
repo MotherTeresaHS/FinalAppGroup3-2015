@@ -8,7 +8,7 @@
 
 difficultyLevel = nil
 points = nil
-amountofcoins = 900
+amountofcoins = 0
 amountofhints = 0
 amountoftimeboost = 0
 amountofpointboost = 0 

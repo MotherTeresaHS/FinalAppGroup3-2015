@@ -42,10 +42,16 @@ function Hard:init()
      
     elseif (op == 2)then
         mathOperationText = "-"
-        answer=firstNumber-secNumber 
-        if (firstNumber>secNumber)then
-            answer= secNumber-firstNumber
-    else  answer=firstNumber-secNumber
+        answer = firstNumber - secNumber 
+        if (answer < 0)then
+            print("negative number")
+            print (firstNumber .. " " .. secNumber)
+            local tempNumber
+            tempNumber = secNumber
+            secNumber = firstNumber
+            firstNumber = tempNumber
+            answer = firstNumber - secNumber
+            print(firstNumber .. secNumber)
             end
    elseif (op == 3)then
         mathOperationText = "*"
@@ -78,6 +84,7 @@ function Hard:draw()
     text(secNumber,450,600)
     text("=",550,600)
     text(answer,650,600)
+        text(amountofcoins,850,700)
     addingButton:draw()
     subtractButton:draw()
     multiplyButton:draw()
@@ -95,7 +102,8 @@ function Hard:touched(touch)
     if(addingButton.selected == true) then
         if (mathOperationText == "+")then
             print("correct")
-            Scene.Change("correcthard")     
+            Scene.Change("correcthard") 
+              amountofcoins = amountofcoins + 10      
         else
             print("wrong") 
             Scene.Change("wronghard")
@@ -103,7 +111,8 @@ function Hard:touched(touch)
     end
     if(subtractButton.selected == true) then
         if (mathOperationText == "-")then
-            Scene.Change("correcthard")     
+            Scene.Change("correcthard")  
+                amountofcoins = amountofcoins + 10   
         else
             Scene.Change("wronghard")
         end
@@ -111,14 +120,16 @@ function Hard:touched(touch)
     
       if(multiplyButton.selected == true) then
         if (mathOperationText == "*")then
-            Scene.Change("correcthard")     
+            Scene.Change("correcthard")    
+                amountofcoins = amountofcoins + 10 
         else
             Scene.Change("wronghard")
         end
     end 
     if(divisionButton.selected == true) then
         if (mathOperationText == "/")then
-            Scene.Change("correcthard")     
+            Scene.Change("correcthard")    
+                amountofcoins = amountofcoins + 10 
         else
             Scene.Change("wronghard")
         end

@@ -58,7 +58,7 @@ function MainGame:touched(touch)
     end
     
     if (back.selected == true) then
-     Scene.Change("players")
+     Scene.Change("main")
     end
     
 end
