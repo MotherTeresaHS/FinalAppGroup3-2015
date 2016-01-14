@@ -6,12 +6,6 @@
 	<string>Unknown</string>
 	<key>Buffer Order</key>
 	<array>
-		<string>correct</string>
-		<string>Correct2</string>
-		<string>Correct3</string>
-		<string>notRight</string>
-		<string>NotRight2</string>
-		<string>NotRight3</string>
 		<string>SplashScreenScene</string>
 		<string>Logo</string>
 		<string>Main</string>
@@ -22,8 +16,14 @@
 		<string>LevelSelect</string>
 		<string>MainGame</string>
 		<string>Easy</string>
+		<string>CorrectEasy</string>
+		<string>WrongEasy</string>
 		<string>Normal</string>
+		<string>CorrectNormal</string>
+		<string>WrongNormal</string>
 		<string>Hard</string>
+		<string>CorrectHard</string>
+		<string>WrongHard</string>
 		<string>Players</string>
 		<string>OnePlayer</string>
 		<string>Tutorial</string>

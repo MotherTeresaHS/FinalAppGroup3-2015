@@ -13,13 +13,19 @@ local store
 local credits 
 
 function MainScreen:init()
-   -- sprite("Dropbox:Red Forward Circle Button")
-sprite("Dropbox:Settings")
-settings = Button("Dropbox:Settings", vec2(940, 700))
+ -- sprite("Dropbox:SettingsButton")
+sprite("Dropbox:Shop Icon")
+settings = Button("Dropbox:SettingsButton", vec2(940, 700))
 mainGame = Button("Dropbox:MainMenuStartButton Resized", vec2(540, 250))
-store = Button("Dropbox:Teal Forward Circle Button", vec2(960, 70))
-credits = Button("Dropbox:Credits", vec2(43, 710))
+store = Button("Dropbox:Shop Icon", vec2(960, 70))
+credits = Button("Dropbox:CreditsPhotoshop", vec2(43, 710))
 tutorial = Button("Dropbox:Red Forward Circle Button", vec2(690, 120))
+    
+    if musicOff then
+        music.stop()
+    else
+        music("A Hero's Quest:Battle")
+    end
 
 end
 
@@ -34,11 +40,11 @@ function MainScreen:draw()
     textMode(CORNER)
     pushStyle()
     text("Tutorial", 380, 80)
-    text("$",10, 20)
+    text("$"..amountofcoins,10, 20)
     tutorial:draw()
     store:draw()
     mainGame:draw()
-    music("A Hero's Quest:Battle")
+  --  music("A Hero's Quest:Battle")
     settings:draw()
     credits:draw()
     
@@ -58,7 +64,7 @@ if (store.selected == true) then
 end        
     
 if (mainGame.selected == true) then 
-    Scene.Change("players")
+    Scene.Change("maingame")
 end  
               
 if (settings.selected == true) then

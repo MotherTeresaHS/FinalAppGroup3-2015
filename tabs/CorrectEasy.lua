@@ -1,19 +1,20 @@
-notRight = class()
+CorrectEasy = class()
 
-function notRight:init()
+function CorrectEasy:init()
     -- you can accept and set parameters here
     moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(50, 700))
 end
 
-function notRight:draw()
+function CorrectEasy:draw()
     -- Codea does not automatically call this method
-    fontSize(40)
-    fill(255, 254, 0, 255)
-    text("you are wrong",400,600)
+    background(0, 255, 72, 255)
+    fontSize(50)
+    fill(0, 0, 0, 255)
+    text("You are right!",500,450)
     moveBackButton:draw()
 end
 
-function notRight:touched(touch)
+function CorrectEasy:touched(touch)
     moveBackButton:touched(touch)
     -- Codea does not automatically call this method
     if(moveBackButton.selected == true) then
