@@ -23,10 +23,11 @@ function Easy:init()
     -- you can accept and set parameters here
 --sprite("Dropbox:FunMath Subtraction Sign")
  --   sprite("Dropbox:FunMath Plus Sign")
+     startTime = ElapsedTime
     moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(50, 700))
     addingButton = Button("Dropbox:FunMath Plus Sign",vec2(400,100))
     subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(600,100))
-    
+    startTime = ElapsedTime
     firstNumber=math.random(10)
     print("firstNumbber ",firstNumber)
     
@@ -71,9 +72,15 @@ function Easy:draw()
     text(secNumber,450,600)
     text("=",550,600)
     text(answer,650,600)
-    text(amountofcoins,850,700)
+    text("$"..amountofcoins,50, 30)
     addingButton:draw()
     subtractButton:draw()
+      print(ElapsedTime)
+    print("End time is" .. startTime + 120)
+    if(startTime + 120 < ElapsedTime) then
+        Scene.Change("leader")
+        print("The end time is" .. ElapsedTime)
+        end
 end
 
 function Easy:touched(touch)
@@ -87,9 +94,9 @@ function Easy:touched(touch)
             print("correct")
             Scene.Change("correcteasy")
            -- points[1] = points[1]+5    
-amountofcoins = amountofcoins + 10
+            amountofcoins = amountofcoins + aVariable*1 + the extra stuff from hints
         else
-            print("wrong") 
+            print("wrong")  
             Scene.Change("wrongeasy")
            -- points[1] = points[1]-5
         end
@@ -111,5 +118,6 @@ amountofcoins = amountofcoins + 10
     if(moveBackButton.selected == true) then
         Scene.Change("maingame")
     end
+    
     
 end
