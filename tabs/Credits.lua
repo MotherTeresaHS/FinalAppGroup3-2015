@@ -8,7 +8,7 @@ Credits = class()
 
 function Credits:init()
     --This button should move back to the scene  you want to go to (main menu)
-    moveBackButton = Button("Dropbox:Purple Back Circle Button", vec2(50, 700))
+    moveBackButton = Button("Dropbox:Purple Back Circle Button", vec2(60, 700))
 end
 
 function Credits:draw()
@@ -22,14 +22,14 @@ function Credits:draw()
     textMode(CENTER)
     pushStyle()
     --These are the names of the people who made the game
-   text("Clients Names:", 500, 650)
+    text("Game Designers:", 500, 650)
     text("Isabella", 500, 600)
     text("Isabelle", 500, 550)
     text("Jakub", 500, 500)
     text("Game Makers:", 500, 450)
     text("Luca-GameCoder", 500, 400)
     text("Khoa-Art", 500, 350)
-    text("Andre-DidNothing", 500, 300)
+    text("Andre-Shop", 500, 300)
     text("Margie-Gui", 500, 250)
    -- text("Music: John Patraboy", 500, 150)
 end

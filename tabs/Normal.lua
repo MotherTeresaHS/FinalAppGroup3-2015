@@ -1,4 +1,4 @@
---Normal
+-- Normal
 -- Created by: Margaret Venes
 -- Created on: Dec 2015
 -- Created for: ICS2O
@@ -23,9 +23,9 @@ function Normal:init()
    -- sprite("Dropbox:Blue Cancel Button")
   
     moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(50, 700))
-    addingButton = Button("Dropbox:FunMath Plus Sign",vec2(500,100))
-    subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(100,100))
-   multiplyButton = Button("Dropbox:FunMath Multiplication Sign",vec2(650,100)) 
+    addingButton = Button("Dropbox:FunMath Plus Sign",vec2(350,100))
+    subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(500,100))
+    multiplyButton = Button("Dropbox:FunMath Multiplication Sign",vec2(650,100)) 
     
     firstNumber=math.random(45)
     print("firstNumbber ",firstNumber)
@@ -41,10 +41,16 @@ function Normal:init()
      
     elseif (op == 2)then
         mathOperationText = "-"
-        answer=firstNumber-secNumber 
-        if (firstNumber>secNumber)then
-            answer= secNumber-firstNumber
-    else  answer=firstNumber-secNumber
+        answer = firstNumber - secNumber 
+        if (answer < 0)then
+            print("negative number")
+            print (firstNumber .. " " .. secNumber)
+            local tempNumber
+            tempNumber = secNumber
+            secNumber = firstNumber
+            firstNumber = tempNumber
+            answer = firstNumber - secNumber
+            print(firstNumber .. secNumber)
             end
    elseif (op == 3)then
         mathOperationText = "*"
@@ -58,51 +64,55 @@ end
 
 function Normal:draw()
     -- Codea does not automatically call this method
-    background(142, 255, 0, 255)
+    background(255, 255, 255, 255)
     moveBackButton:draw()
     print(answer)
     print(firstNumber)
     print(secNumber)
     print(op)
-    fontSize(40)
-    fill(255, 254, 0, 255)
-    text(firstNumber,400,600)
-    text(secNumber,500,600)
+    fontSize(60)
+    fill(0, 0, 0, 255)
+    text(firstNumber,300,600)
+    text(secNumber,450,600)
     text("=",550,600)
-    text(answer,600,600)
+    text(answer,650,600)
+    text("$"..amountofcoins,50, 30)
     addingButton:draw()
     subtractButton:draw()
     multiplyButton:draw()
 end
 
 function Normal:touched(touch)
-moveBackButton:touched(touch)
+    moveBackButton:touched(touch)
     addingButton:touched(touch) 
     subtractButton:touched(touch)
     multiplyButton:touched(touch)
     
     if(addingButton.selected == true) then
         if (mathOperationText == "+")then
-            print("corect")
-            Scene.Change("right2")     
+            print("correct")
+            Scene.Change("correctnormal")     
+            amountofcoins = amountofcoins + 10
         else
             print("wrong") 
-            Scene.Change("wrong2")
+            Scene.Change("wrongnormal")
         end
     end
     if(subtractButton.selected == true) then
         if (mathOperationText == "-")then
-            Scene.Change("right2")     
+            Scene.Change("correctnormal")  
+            amountofcoins = amountofcoins + 10   
         else
-            Scene.Change("wrong2")
+            Scene.Change("wrongnormal")
         end
     end
     
       if(multiplyButton.selected == true) then
         if (mathOperationText == "*")then
-            Scene.Change("right2")     
+            Scene.Change("correctnormal")   
+              amountofcoins = amountofcoins + 10
         else
-            Scene.Change("wrong2")
+            Scene.Change("wrongnormal")
         end
     end 
         

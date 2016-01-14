@@ -8,6 +8,10 @@
 
 difficultyLevel = nil
 points = nil
+amountofcoins = 0
+amountofhints = 0
+amountoftimeboost = 0
+amountofpointboost = 0 
 
 function setup()
     supportedOrientations(LANDSCAPE_ANY)
@@ -36,12 +40,12 @@ function setup()
     Scene("threeplayers", ThreePlayers)
     Scene("fourplayers", FourPlayers)
     Scene("tutorial", Tutorial)
-    Scene("right",correct)
-    Scene("right2",Correct2)
-    Scene("right3",Correct3)
-    Scene("wrong",notRight)
-    Scene("wrong2",NotRight2)
-    Scene("wrong3",NotRight3)
+    Scene("correcteasy",CorrectEasy)
+    Scene("correctnormal",CorrectNormal)
+    Scene("correcthard",CorrectHard)
+    Scene("wrongeasy",WrongEasy)
+    Scene("wrongnormal",WrongNormal)
+    Scene("wronghard",WrongHard)
     
     --ANDRE AND LUCA this is the scene names for the achievements and leaderboard
     
@@ -51,7 +55,7 @@ function setup()
     --LUCA these are the scenes you should code in...its the game difficulty
     
     Scene("easy", Easy)
-    Scene("medium", Normal)
+    Scene("normal", Normal)
     Scene("hard", Hard)
     
     Scene.Change("splash")
