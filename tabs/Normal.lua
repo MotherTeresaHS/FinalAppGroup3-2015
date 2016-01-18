@@ -80,6 +80,21 @@ function Normal:draw()
     addingButton:draw()
     subtractButton:draw()
     multiplyButton:draw()
+    countDown = 120 * 1000
+   startTime = ElapsedTime
+   print("start time " ..startTime)
+  endTime = startTime + countDown
+   print("end time " .. endTime)
+  currentTime = endTime - (ElapsedTime*1000)
+   print ("current time " .. currentTime)
+    if (currentTime > 0) then
+      currentTime = endTime - (ElapsedTime*1000)
+  else
+      currentTime = 0
+  end
+   fill(0, 0, 0, 255)
+   fontSize(50)
+  text ("Time left: " .. math.floor(currentTime/1000), 512, 700)
 end
 
 function Normal:touched(touch)
@@ -92,7 +107,7 @@ function Normal:touched(touch)
         if (mathOperationText == "+")then
             print("correct")
             Scene.Change("correctnormal")     
-            amountofcoins = amountofcoins + 10
+            amountofcoins = amountofcoins + 20
         else
             print("wrong") 
             Scene.Change("wrongnormal")
@@ -101,7 +116,7 @@ function Normal:touched(touch)
     if(subtractButton.selected == true) then
         if (mathOperationText == "-")then
             Scene.Change("correctnormal")  
-            amountofcoins = amountofcoins + 10   
+            amountofcoins = amountofcoins + 20 
         else
             Scene.Change("wrongnormal")
         end
@@ -110,7 +125,7 @@ function Normal:touched(touch)
       if(multiplyButton.selected == true) then
         if (mathOperationText == "*")then
             Scene.Change("correctnormal")   
-              amountofcoins = amountofcoins + 10
+              amountofcoins = amountofcoins + 20
         else
             Scene.Change("wrongnormal")
         end

@@ -103,7 +103,7 @@ function Hard:touched(touch)
         if (mathOperationText == "+")then
             print("correct")
             Scene.Change("correcthard") 
-              amountofcoins = amountofcoins + 10      
+              amountofcoins = amountofcoins + 40  
         else
             print("wrong") 
             Scene.Change("wronghard")
@@ -112,7 +112,7 @@ function Hard:touched(touch)
     if(subtractButton.selected == true) then
         if (mathOperationText == "-")then
             Scene.Change("correcthard")  
-                amountofcoins = amountofcoins + 10   
+                amountofcoins = amountofcoins + 40
         else
             Scene.Change("wronghard")
         end
@@ -121,7 +121,7 @@ function Hard:touched(touch)
       if(multiplyButton.selected == true) then
         if (mathOperationText == "*")then
             Scene.Change("correcthard")    
-                amountofcoins = amountofcoins + 10 
+                amountofcoins = amountofcoins + 40
         else
             Scene.Change("wronghard")
         end
@@ -129,7 +129,7 @@ function Hard:touched(touch)
     if(divisionButton.selected == true) then
         if (mathOperationText == "/")then
             Scene.Change("correcthard")    
-                amountofcoins = amountofcoins + 10 
+                amountofcoins = amountofcoins + 40
         else
             Scene.Change("wronghard")
         end
