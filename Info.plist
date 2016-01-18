@@ -6,13 +6,32 @@
 	<string>Unknown</string>
 	<key>Buffer Order</key>
 	<array>
-		<string>Main</string>
 		<string>SplashScreenScene</string>
+		<string>Logo</string>
+		<string>Main</string>
 		<string>MainScreen</string>
+		<string>Settings</string>
 		<string>Store</string>
-		<string>Artwork</string>
 		<string>Credits</string>
+		<string>LevelSelect</string>
 		<string>MainGame</string>
+		<string>Easy</string>
+		<string>CorrectEasy</string>
+		<string>WrongEasy</string>
+		<string>Normal</string>
+		<string>CorrectNormal</string>
+		<string>WrongNormal</string>
+		<string>Hard</string>
+		<string>CorrectHard</string>
+		<string>WrongHard</string>
+		<string>Players</string>
+		<string>OnePlayer</string>
+		<string>Tutorial</string>
+		<string>TwoPlayers</string>
+		<string>ThreePlayers</string>
+		<string>FourPlayers</string>
+		<string>Leaderboard</string>
+		<string>Achievements</string>
 		<string>HelperClass</string>
 	</array>
 	<key>Dependencies</key>
