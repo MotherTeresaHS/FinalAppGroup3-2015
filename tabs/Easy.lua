@@ -52,6 +52,7 @@ function Easy:init()
             firstNumber = tempNumber
             answer = firstNumber - secNumber
             print(firstNumber .. secNumber)
+            
         end
             
     end
@@ -73,6 +74,8 @@ function Easy:draw()
     text("=",550,600)
     text(answer,650,600)
     text("$"..amountofcoins,50, 30)
+    text(ElapsedTime,1255,700)
+    text("max time is 130 sec ->",500,700)
     addingButton:draw()
     subtractButton:draw()
       print(ElapsedTime)
@@ -94,7 +97,7 @@ function Easy:touched(touch)
             print("correct")
             Scene.Change("correcteasy")
            -- points[1] = points[1]+5    
-            amountofcoins = amountofcoins + aVariable*1 + the extra stuff from hints
+            amountofcoins = amountofcoins +5
         else
             print("wrong")  
             Scene.Change("wrongeasy")
@@ -104,7 +107,7 @@ function Easy:touched(touch)
     if(subtractButton.selected == true) then
         if (mathOperationText == "-")then
             Scene.Change("correcteasy")    
-             amountofcoins = amountofcoins + 10
+             amountofcoins = amountofcoins +5
         else
             Scene.Change("wrongeasy")
         end

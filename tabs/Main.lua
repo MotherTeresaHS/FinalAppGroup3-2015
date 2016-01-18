@@ -11,7 +11,7 @@ points = nil
 amountofcoins = 0
 amountofhints = 0
 amountoftimeboost = 0
-amountofpointboost = 0 
+amountofskipquestion = 0 
 
 function setup()
     supportedOrientations(LANDSCAPE_ANY)
