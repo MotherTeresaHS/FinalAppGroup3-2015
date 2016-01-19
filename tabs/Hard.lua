@@ -18,6 +18,7 @@ local buttonAnswer
 local subtractButton
 local multiplyButton
 local divisionButton
+local temp
 
 
 function Hard:init()
@@ -38,7 +39,7 @@ function Hard:init()
     print("op ",op)
     if(op == 1 )then
         mathOperationText = "+"
-        answer=firstNumber+secNumber 
+        answer = firstNumber+secNumber 
      
     elseif (op == 2)then
         mathOperationText = "-"
@@ -52,21 +53,18 @@ function Hard:init()
             firstNumber = tempNumber
             answer = firstNumber - secNumber
             print(firstNumber .. secNumber)
-            end
-   elseif (op == 3)then
+        end
+        
+    elseif (op == 3)then
         mathOperationText = "*"
         answer=firstNumber*secNumber 
-        if (firstNumber>secNumber)then
-            answer= secNumber*firstNumber
-    else  answer=firstNumber*secNumber         
-    end
-        elseif (op == 4)then
+        
+    elseif (op == 4)then
         mathOperationText = "/"
+        temp = firstNumber*secNumber
+        firstNumber=temp
         answer=firstNumber/secNumber 
-        if (firstNumber>secNumber)then
-            answer= secNumber/firstNumber
-    else  answer=firstNumber/secNumber         
-end
+    end
 end
 
 function Hard:draw()
@@ -80,11 +78,11 @@ function Hard:draw()
     print(op)
     fontSize(60)
     fill(0, 0, 0, 255)
-    text(firstNumber,300,600)
-    text(secNumber,450,600)
+    text(math.floor(firstNumber),300,600)
+    text(math.floor(secNumber),450,600)
     text("=",550,600)
-    text(answer,650,600)
-    text("$"..amountofcoins,60, 30)
+    text(math.floor(answer),650,600)
+    text("$"..amountofcoins,475, 300)
     addingButton:draw()
     subtractButton:draw()
     multiplyButton:draw()
@@ -139,5 +137,4 @@ function Hard:touched(touch)
         Scene.Change("maingame")
     end
     
-end
 end

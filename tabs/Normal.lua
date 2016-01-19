@@ -27,10 +27,10 @@ function Normal:init()
     subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(500,100))
     multiplyButton = Button("Dropbox:FunMath Multiplication Sign",vec2(650,100)) 
     
-    firstNumber=math.random(45)
+    firstNumber=math.random(20)
     print("firstNumbber ",firstNumber)
     
-    secNumber=math.random(45)
+    secNumber=math.random(20)
     print("secNumber ",secNumber)
     
     op=math.random(3)
@@ -76,7 +76,7 @@ function Normal:draw()
     text(secNumber,450,600)
     text("=",550,600)
     text(answer,650,600)
-    text("$"..amountofcoins,50, 30)
+    text("$"..amountofcoins,500, 300)
     addingButton:draw()
     subtractButton:draw()
     multiplyButton:draw()
@@ -89,8 +89,12 @@ function Normal:draw()
    print ("current time " .. currentTime)
     if (currentTime > 0) then
       currentTime = endTime - (ElapsedTime*1000)
+    
   else
       currentTime = 0
+        Scene.Change("endscreennormal")
+        
+    
   end
    fill(0, 0, 0, 255)
    fontSize(50)

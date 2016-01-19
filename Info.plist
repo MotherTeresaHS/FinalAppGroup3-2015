@@ -21,6 +21,7 @@
 		<string>Normal</string>
 		<string>CorrectNormal</string>
 		<string>WrongNormal</string>
+		<string>EndScreenNormal</string>
 		<string>Hard</string>
 		<string>CorrectHard</string>
 		<string>WrongHard</string>

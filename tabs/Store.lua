@@ -12,13 +12,13 @@ local buyHint
 local buyTimeboost
 local buySkipquestion
 
---sprite("Dropbox:Point Boost Button")
 function Store:init()
---This button moves back to the main menu
+
    moveBackButton = Button("Dropbox:Blue Back Circle Button", vec2(60, 700))
    buyHint = Button("Dropbox:Hints Button", vec2(540, 480))
    buyTimeboost = Button("Dropbox:Time Boost Button", vec2(540, 350))
    buySkipquestion = Button("Dropbox:SkipButton", vec2(540, 225))
+    
 end
 
 function Store:draw()
@@ -64,8 +64,7 @@ function Store:draw()
    rect(0, 550, 805, 80)
    fill(0, 0, 0, 255)
    fontSize(60)
-   text("Upgrades", 500, 590)
-   
+   text("Upgrades", 500, 590)  
    text("$"..amountofcoins, 500, 50)
    fontSize(40)
    text("Hints:".. amountofskipquestion, 105, 500)
@@ -88,8 +87,8 @@ function Store:touched(touch)
 
    if (buyHint.selected == true) then
        if(amountofcoins>=100)then
-           amountofcoins=amountofcoins-100
-           amountofhints=amountofhints+1
+           amountofcoins=amountofcoins - 100
+           amountofhints=amountofhints + 1
        else
            alert("Not enough coins", "Can't buy Hints")
 
