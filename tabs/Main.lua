@@ -6,8 +6,8 @@
 
 -- Use this function to perform your initial setup
 
-difficultyLevel = nil
-points = nil
+--difficultyLevel = nil
+
 amountofcoins = 0
 amountofhints = 0
 amountoftimeboost = 0
@@ -46,6 +46,7 @@ function setup()
     Scene("wrongeasy",WrongEasy)
     Scene("wrongnormal",WrongNormal)
     Scene("wronghard",WrongHard)
+    Scene("endscreennormal", EndScreenNormal)
     
     --ANDRE AND LUCA this is the scene names for the achievements and leaderboard
     

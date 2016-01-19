@@ -21,9 +21,7 @@ local subtractButton
  
 function Easy:init()
     -- you can accept and set parameters here
---sprite("Dropbox:FunMath Subtraction Sign")
- --   sprite("Dropbox:FunMath Plus Sign")
-     startTime = ElapsedTime
+    startTime = ElapsedTime
     moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(50, 700))
     addingButton = Button("Dropbox:FunMath Plus Sign",vec2(400,100))
     subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(600,100))
@@ -67,13 +65,13 @@ function Easy:draw()
     print(firstNumber)
     print(secNumber)
     print(op)
-    fontSize(80)
+    fontSize(50)
     fill(0, 0, 0, 255)
     text(firstNumber,300,600)
     text(secNumber,450,600)
     text("=",550,600)
     text(answer,650,600)
-    text("$"..amountofcoins,50, 30)
+    text("$"..amountofcoins,500, 300)
     text(ElapsedTime,1255,700)
     text("max time is 130 sec ->",500,700)
     addingButton:draw()
