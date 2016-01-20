@@ -2,7 +2,7 @@ CorrectHard = class()
 
 function CorrectHard:init()
     -- you can accept and set parameters here
-    moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(50, 700))
+    moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(500,100))
 end
 
 function CorrectHard:draw()

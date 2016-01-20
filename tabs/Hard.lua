@@ -23,7 +23,7 @@ local temp
 
 function Hard:init()
     
-    moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(50, 700))
+    moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(60, 710))
     addingButton = Button("Dropbox:FunMath Plus Sign",vec2(250,100))
     subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(400,100))
     multiplyButton = Button("Dropbox:FunMath Multiplication Sign",vec2(550,100)) 
@@ -83,10 +83,19 @@ function Hard:draw()
     text("=",550,600)
     text(math.floor(answer),650,600)
     text("$"..amountofcoins,475, 300)
+    currentTime = endTime - (ElapsedTime)
+    print ("current time " .. currentTime)
+    if (currentTime > 0) then
+    --currentTime = endTime - (ElapsedTime)    
+    else
+        currentTime = 0
+        Scene.Change("endscreennormal") 
+    end          
     addingButton:draw()
     subtractButton:draw()
     multiplyButton:draw()
     divisionButton:draw()
+    text ("Time left: " .. math.floor(currentTime), 512, 700)
 end
 
 function Hard:touched(touch)
@@ -100,36 +109,36 @@ function Hard:touched(touch)
     if(addingButton.selected == true) then
         if (mathOperationText == "+")then
             print("correct")
-            Scene.Change("correcthard") 
+            Scene.Change("hard") 
               amountofcoins = amountofcoins + 40  
         else
             print("wrong") 
-            Scene.Change("wronghard")
+            Scene.Change("hard")
         end
     end
     if(subtractButton.selected == true) then
         if (mathOperationText == "-")then
-            Scene.Change("correcthard")  
+            Scene.Change("hard")  
                 amountofcoins = amountofcoins + 40
         else
-            Scene.Change("wronghard")
+            Scene.Change("hard")
         end
     end
     
       if(multiplyButton.selected == true) then
         if (mathOperationText == "*")then
-            Scene.Change("correcthard")    
+            Scene.Change("hard")    
                 amountofcoins = amountofcoins + 40
         else
-            Scene.Change("wronghard")
+            Scene.Change("hard")
         end
     end 
     if(divisionButton.selected == true) then
         if (mathOperationText == "/")then
-            Scene.Change("correcthard")    
+            Scene.Change("hard")    
                 amountofcoins = amountofcoins + 40
         else
-            Scene.Change("wronghard")
+            Scene.Change("hard")
         end
     end     
         

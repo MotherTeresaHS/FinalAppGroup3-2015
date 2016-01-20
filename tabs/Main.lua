@@ -13,6 +13,10 @@ amountofhints = 0
 amountoftimeboost = 0
 amountofskipquestion = 0 
 
+countDown = 0
+startTime = 0
+endTime = 0
+
 function setup()
     supportedOrientations(LANDSCAPE_ANY)
     displayMode(FULLSCREEN)

@@ -6,14 +6,13 @@
 	<string>Unknown</string>
 	<key>Buffer Order</key>
 	<array>
+		<string>Main</string>
 		<string>SplashScreenScene</string>
 		<string>Logo</string>
-		<string>Main</string>
 		<string>MainScreen</string>
 		<string>Settings</string>
 		<string>Store</string>
 		<string>Credits</string>
-		<string>LevelSelect</string>
 		<string>MainGame</string>
 		<string>Easy</string>
 		<string>CorrectEasy</string>

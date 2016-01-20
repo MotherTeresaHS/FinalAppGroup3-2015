@@ -24,7 +24,7 @@ tutorial = Button("Dropbox:Red Forward Circle Button", vec2(690, 120))
     if musicOff then
         music.stop()
     else
-        music("A Hero's Quest:Battle")
+        music("A Hero's Quest:In the City")
     end
 
 end

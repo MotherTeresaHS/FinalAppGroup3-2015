@@ -7,7 +7,7 @@ Leaderboard = class()
 
 function Leaderboard:init()
     -- you can accept and set parameters here
-    back = Button("Dropbox:Blue Back Circle Button", vec2(60, 700))
+    back = Button("Dropbox:Blue Back Circle Button", vec2(60, 710))
 end
 
 function Leaderboard:draw()

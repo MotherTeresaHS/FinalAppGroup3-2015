@@ -8,7 +8,7 @@ Credits = class()
 
 function Credits:init()
     --This button should move back to the scene  you want to go to (main menu)
-    moveBackButton = Button("Dropbox:Purple Back Circle Button", vec2(60, 700))
+    moveBackButton = Button("Dropbox:Purple Back Circle Button", vec2(60, 710))
 end
 
 function Credits:draw()

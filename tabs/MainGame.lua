@@ -11,7 +11,7 @@ local mainGame
 --sprite("Dropbox:LeaderBoardsIcon")
 function MainGame:init()
     --These are the diffulties leading to the game 
-    back = Button("Dropbox:Blue Back Circle Button", vec2(60, 700))
+    back = Button("Dropbox:Blue Back Circle Button", vec2(60, 710))
     easy = Button("Dropbox:EasyButton Photoshop", vec2(200, 500))
     normal = Button("Dropbox:NormalButton Photoshop", vec2(780, 500))
     hard = Button("Dropbox:Hard Button Photoshop", vec2(500, 300))
@@ -46,18 +46,32 @@ function MainGame:touched(touch)
     
     --The easy button goes to the easy scene 
      if (easy.selected == true) then
-       -- difficultyLevel = "easy"
+        countDown = 60 * 3
+        startTime = ElapsedTime
+        print("start time " ..startTime)
+        endTime = startTime + countDown
+        print("end time " .. endTime)
         Scene.Change("easy")
     end
     --The medium button goes to the medium scene
     if (normal.selected == true) then
       --  difficultyLevel = "normal"
+        countDown = 60 * 2
+        startTime = ElapsedTime
+        print("start time " ..startTime)
+        endTime = startTime + countDown
+        print("end time " .. endTime)
         Scene.Change("normal")
     end
     
     --The hard button goes to the hard scene
     if (hard.selected == true) then
       --  difficultyLevel = "hard"
+        countDown = 60 
+        startTime = ElapsedTime
+        print("start time " ..startTime)
+        endTime = startTime + countDown
+        print("end time " .. endTime)
         Scene.Change("hard")
     end
     
