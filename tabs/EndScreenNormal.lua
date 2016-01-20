@@ -1,7 +1,7 @@
 EndScreenNormal = class()
 
 function EndScreenNormal:init()
-    moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(50, 700))
+    moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(60, 700))
 end
 
 function EndScreenNormal:draw()
@@ -10,6 +10,7 @@ function EndScreenNormal:draw()
     fontSize(50)
     fill(255, 255, 255, 255)
     text("End game.",500,450)
+    text("The amount of money you have is $"..amountofcoins, 500, 350)
     moveBackButton:draw()
 
 end

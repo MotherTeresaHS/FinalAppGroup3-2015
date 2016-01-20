@@ -14,7 +14,7 @@ local buySkipquestion
 
 function Store:init()
 
-   moveBackButton = Button("Dropbox:Blue Back Circle Button", vec2(60, 700))
+   moveBackButton = Button("Dropbox:Blue Back Circle Button", vec2(60, 710))
    buyHint = Button("Dropbox:Hints Button", vec2(540, 480))
    buyTimeboost = Button("Dropbox:Time Boost Button", vec2(540, 350))
    buySkipquestion = Button("Dropbox:SkipButton", vec2(540, 225))
@@ -67,7 +67,7 @@ function Store:draw()
    text("Upgrades", 500, 590)  
    text("$"..amountofcoins, 500, 50)
    fontSize(40)
-   text("Hints:".. amountofskipquestion, 105, 500)
+   text("Hints:".. amountofhints, 105, 500)
    text("Time Boost:".. amountoftimeboost, 125, 350)
    text("Skip:".. amountofskipquestion, 105, 200)
 

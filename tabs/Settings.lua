@@ -13,7 +13,7 @@ function Settings:init()
    -- sprite("Dropbox:No Sound Icon")
    -- sprite("Dropbox:Sound Icon")
    -- sprite("Dropbox:Blue Move Scene Forward Button")
-    moveBackButton = Button("Dropbox:Blue Back Circle Button", vec2(60, 700))
+    moveBackButton = Button("Dropbox:Blue Back Circle Button", vec2(60, 710))
     onButton = Button("Dropbox:Sound Icon", vec2(250, 500))
     offButton = Button("Dropbox:No Sound Icon", vec2(700, 500))
 end

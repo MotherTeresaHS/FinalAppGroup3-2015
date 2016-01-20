@@ -22,10 +22,10 @@ local subtractButton
 function Easy:init()
     -- you can accept and set parameters here
     startTime = ElapsedTime
-    moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(50, 700))
+    moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(60, 710))
     addingButton = Button("Dropbox:FunMath Plus Sign",vec2(400,100))
     subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(600,100))
-    startTime = ElapsedTime
+
     firstNumber=math.random(10)
     print("firstNumbber ",firstNumber)
     
@@ -72,16 +72,17 @@ function Easy:draw()
     text("=",550,600)
     text(answer,650,600)
     text("$"..amountofcoins,500, 300)
-    text(ElapsedTime,1255,700)
-    text("max time is 130 sec ->",500,700)
+    currentTime = endTime - (ElapsedTime)
+    print ("current time " .. currentTime)
+    if (currentTime > 0) then
+    --currentTime = endTime - (ElapsedTime)    
+    else
+        currentTime = 0
+        Scene.Change("endscreennormal")            
+    end
     addingButton:draw()
     subtractButton:draw()
-      print(ElapsedTime)
-    print("End time is" .. startTime + 120)
-    if(startTime + 120 < ElapsedTime) then
-        Scene.Change("leader")
-        print("The end time is" .. ElapsedTime)
-        end
+    text ("Time left: " .. math.floor(currentTime), 512, 700)
 end
 
 function Easy:touched(touch)
@@ -93,32 +94,28 @@ function Easy:touched(touch)
     if(addingButton.selected == true) then
         if (mathOperationText == "+")then
             print("correct")
-            Scene.Change("correcteasy")
+            Scene.Change("easy")
            -- points[1] = points[1]+5    
-            amountofcoins = amountofcoins +5
+            amountofcoins = amountofcoins + 5
         else
             print("wrong")  
-            Scene.Change("wrongeasy")
+            Scene.Change("easy")
            -- points[1] = points[1]-5
         end
     end
     if(subtractButton.selected == true) then
         if (mathOperationText == "-")then
-            Scene.Change("correcteasy")    
-             amountofcoins = amountofcoins +5
+            Scene.Change("easy")    
+             amountofcoins = amountofcoins + 5
         else
-            Scene.Change("wrongeasy")
+            Scene.Change("easy")
         end
     end
    -- elseif (subtractButton.selected == true and mathOperationText == "-")then
         --print"correct"
       --  Scene.Change("right")
-    --end
-    
-        
+    --end     
     if(moveBackButton.selected == true) then
         Scene.Change("maingame")
-    end
-    
-    
+    end  
 end

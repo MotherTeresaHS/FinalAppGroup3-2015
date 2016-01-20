@@ -20,9 +20,9 @@ local multiplyButton
 
 function Normal:init()
     -- you can accept and set parameters here
-   -- sprite("Dropbox:Blue Cancel Button")
+    -- sprite("Dropbox:Blue Cancel Button")
   
-    moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(50, 700))
+    moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(60, 710))
     addingButton = Button("Dropbox:FunMath Plus Sign",vec2(350,100))
     subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(500,100))
     multiplyButton = Button("Dropbox:FunMath Multiplication Sign",vec2(650,100)) 
@@ -51,15 +51,19 @@ function Normal:init()
             firstNumber = tempNumber
             answer = firstNumber - secNumber
             print(firstNumber .. secNumber)
-            end
-   elseif (op == 3)then
+        end
+        
+    elseif (op == 3)then
         mathOperationText = "*"
         answer=firstNumber*secNumber 
         if (firstNumber>secNumber)then
             answer= secNumber*firstNumber
-    else  answer=firstNumber*secNumber         
+        else  
+            answer=firstNumber*secNumber         
+        end
     end
-end
+    
+    
 end
 
 function Normal:draw()
@@ -80,25 +84,18 @@ function Normal:draw()
     addingButton:draw()
     subtractButton:draw()
     multiplyButton:draw()
-    countDown = 120 * 1000
-   startTime = ElapsedTime
-   print("start time " ..startTime)
-  endTime = startTime + countDown
-   print("end time " .. endTime)
-  currentTime = endTime - (ElapsedTime*1000)
-   print ("current time " .. currentTime)
+    currentTime = endTime - (ElapsedTime)
+    print ("current time " .. currentTime)
     if (currentTime > 0) then
-      currentTime = endTime - (ElapsedTime*1000)
+      --currentTime = endTime - (ElapsedTime)    
+    else
+        currentTime = 0
+        Scene.Change("endscreennormal")            
+    end
     
-  else
-      currentTime = 0
-        Scene.Change("endscreennormal")
-        
-    
-  end
-   fill(0, 0, 0, 255)
-   fontSize(50)
-  text ("Time left: " .. math.floor(currentTime/1000), 512, 700)
+    fill(0, 0, 0, 255)
+    fontSize(50)
+    text ("Time left: " .. math.floor(currentTime), 512, 700)
 end
 
 function Normal:touched(touch)
@@ -110,28 +107,34 @@ function Normal:touched(touch)
     if(addingButton.selected == true) then
         if (mathOperationText == "+")then
             print("correct")
-            Scene.Change("correctnormal")     
+           -- Scene.Change("correctnormal")     
+            Scene.Change("normal")
             amountofcoins = amountofcoins + 20
         else
             print("wrong") 
-            Scene.Change("wrongnormal")
+            Scene.Change("normal")
+            --Scene.Change("wrongnormal")
         end
     end
     if(subtractButton.selected == true) then
         if (mathOperationText == "-")then
-            Scene.Change("correctnormal")  
+           -- Scene.Change("correctnormal")  
+            Scene.Change("normal")
             amountofcoins = amountofcoins + 20 
         else
-            Scene.Change("wrongnormal")
+            --Scene.Change("wrongnormal")
+            Scene.Change("normal")
         end
     end
     
       if(multiplyButton.selected == true) then
         if (mathOperationText == "*")then
-            Scene.Change("correctnormal")   
+            Scene.Change("normal")
+           -- Scene.Change("correctnormal")   
               amountofcoins = amountofcoins + 20
         else
-            Scene.Change("wrongnormal")
+            --Scene.Change("wrongnormal")
+            Scene.Change("normal")
         end
     end 
         
