@@ -14,17 +14,19 @@ local credits
 
 function MainScreen:init()
  -- sprite("Dropbox:SettingsButton")
-sprite("Dropbox:Shop Icon")
-settings = Button("Dropbox:SettingsButton", vec2(940, 700))
+--sprite("Dropbox:Blue Settings Button")
+--sprite("Dropbox:CreditsPhotoshop")
+settings = Button("Dropbox:SettingsButton", vec2(960, 700))
 mainGame = Button("Dropbox:MainMenuStartButton Resized", vec2(540, 250))
 store = Button("Dropbox:Shop Icon", vec2(960, 70))
 credits = Button("Dropbox:CreditsPhotoshop", vec2(43, 710))
 tutorial = Button("Dropbox:Red Forward Circle Button", vec2(690, 120))
+leaderboard = Button("Dropbox:LeaderBoardsIcon", vec2(50, 450))
     
     if musicOff then
         music.stop()
     else
-        music("A Hero's Quest:In the City")
+        music("Dropbox:RetroflexionFINAL")
     end
 
 end
@@ -41,12 +43,13 @@ function MainScreen:draw()
     pushStyle()
     text("Tutorial", 380, 80)
     text("$"..amountofcoins,10, 20)
+    saveLocalData("coins", amountofcoins)
     tutorial:draw()
     store:draw()
     mainGame:draw()
-  --  music("A Hero's Quest:Battle")
     settings:draw()
     credits:draw()
+    leaderboard:draw()
     
 end
 
@@ -58,6 +61,7 @@ function MainScreen:touched(touch)
     settings:touched(touch)
     credits:touched(touch)
     tutorial:touched(touch)
+    leaderboard:touched(touch)
     
 if (store.selected == true) then
     Scene.Change("store")
@@ -76,8 +80,14 @@ if (credits.selected == true) then
 end
     
 if (tutorial.selected == true) then
-    Scene.Change("tutorial")
-            
+    Scene.Change("tutorialone")
+end
+    
+if (leaderboard.selected == true) then
+    if (gamecenter.enabled() == true) then
+            gamecenter.showLeaderboards()
+        end
+        
 end
       end
 

@@ -31,7 +31,7 @@ function Credits:draw()
     text("Khoa-Art", 500, 350)
     text("Andre-Shop", 500, 300)
     text("Margie-Gui", 500, 250)
-   -- text("Music: John Patraboy", 500, 150)
+    text("Music: John Patraboy", 500, 150)
 end
 
 function Credits:touched(touch)
@@ -39,5 +39,5 @@ function Credits:touched(touch)
     --This scene should go to the main menu
  if (moveBackButton.selected == true) then
     Scene.Change("main")
-        end
-end
+end    
+  end

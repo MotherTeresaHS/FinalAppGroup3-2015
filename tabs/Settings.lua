@@ -45,7 +45,7 @@ function Settings:touched(touch)
     if (moveBackButton.selected == true) then
     Scene.Change("main")
     elseif(onButton.selected == true) then
-        music("A Hero's Quest:Battle")
+        music("Dropbox:RetroflexionFINAL")
         musicOff = false
     elseif(offButton.selected == true) then
         music.stop()

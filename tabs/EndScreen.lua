@@ -1,7 +1,7 @@
 EndScreenNormal = class()
 
 function EndScreenNormal:init()
-    moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(60, 700))
+    moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(500,100))
 end
 
 function EndScreenNormal:draw()

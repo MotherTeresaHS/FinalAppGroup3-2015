@@ -7,6 +7,8 @@
 	<key>Buffer Order</key>
 	<array>
 		<string>Main</string>
+		<string>TutorialOne</string>
+		<string>TutorialTwo</string>
 		<string>SplashScreenScene</string>
 		<string>Logo</string>
 		<string>MainScreen</string>
@@ -15,15 +17,15 @@
 		<string>Credits</string>
 		<string>MainGame</string>
 		<string>Easy</string>
-		<string>CorrectEasy</string>
+		<string>RightEasy</string>
 		<string>WrongEasy</string>
 		<string>Normal</string>
 		<string>CorrectNormal</string>
 		<string>WrongNormal</string>
-		<string>EndScreenNormal</string>
 		<string>Hard</string>
 		<string>CorrectHard</string>
 		<string>WrongHard</string>
+		<string>EndScreen</string>
 		<string>Players</string>
 		<string>OnePlayer</string>
 		<string>Tutorial</string>
@@ -31,7 +33,6 @@
 		<string>ThreePlayers</string>
 		<string>FourPlayers</string>
 		<string>Leaderboard</string>
-		<string>Achievements</string>
 		<string>HelperClass</string>
 	</array>
 	<key>Dependencies</key>

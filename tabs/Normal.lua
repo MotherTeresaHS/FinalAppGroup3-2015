@@ -4,8 +4,6 @@
 -- Created for: ICS2O
 -- This is the normal level scene
 
---points[1] = points[1] + 5
-
 Normal = class()
 
 local answer
@@ -17,16 +15,20 @@ local addingButton
 local buttonAnswer
 local subtractButton
 local multiplyButton
+local showHint
 
 function Normal:init()
-    -- you can accept and set parameters here
-    -- sprite("Dropbox:Blue Cancel Button")
-  
-    moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(60, 710))
-    addingButton = Button("Dropbox:FunMath Plus Sign",vec2(350,100))
-    subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(500,100))
-    multiplyButton = Button("Dropbox:FunMath Multiplication Sign",vec2(650,100)) 
     
+    showHint = false
+    startTime = ElapsedTime
+    moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(60, 710))
+    addingButton = Button("Dropbox:FunMath Plus Sign",vec2(370,100))
+    subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(520,100))
+    multiplyButton = Button("Dropbox:FunMath Multiplication Sign",vec2(670,100)) 
+    skipButton = Button("Dropbox:Red Forward Circle Button",vec2(60,180))
+    hintButton= Button("Dropbox:Blue Forward Circle Button",vec2(60,470))
+    timeBoostButton= Button("Dropbox:Green Forward Circle Button",vec2(60,330))
+    --This is the code that will give random numbers and functions
     firstNumber=math.random(20)
     print("firstNumbber ",firstNumber)
     
@@ -70,71 +72,85 @@ function Normal:draw()
     -- Codea does not automatically call this method
     background(255, 255, 255, 255)
     moveBackButton:draw()
+    addingButton:draw()
+    subtractButton:draw()
+    multiplyButton:draw()
     print(answer)
     print(firstNumber)
     print(secNumber)
     print(op)
-    fontSize(60)
+    fontSize(100)
     fill(0, 0, 0, 255)
-    text(firstNumber,300,600)
-    text(secNumber,450,600)
-    text("=",550,600)
-    text(answer,650,600)
-    text("$"..amountofcoins,500, 300)
-    addingButton:draw()
-    subtractButton:draw()
-    multiplyButton:draw()
+    font("SourceSansPro-Regular")
+    --This is the problem that will show up for the game
+    text(firstNumber,310,450)
+    text(secNumber,510,450)
+    text("?", 420, 450)
+    text("=",610,450)
+    text(answer,710,450)
+    fontSize(50)
+    fill(59, 59, 59, 255)
+    text("$"..amountofcoins,900, 700)
+    --This is the time for the game
+    fontSize(30)
     currentTime = endTime - (ElapsedTime)
     print ("current time " .. currentTime)
-    if (currentTime > 0) then
-      --currentTime = endTime - (ElapsedTime)    
+    if (currentTime > 0) then  
     else
         currentTime = 0
         Scene.Change("endscreennormal")            
     end
-    
-    fill(0, 0, 0, 255)
-    fontSize(50)
     text ("Time left: " .. math.floor(currentTime), 512, 700)
+    --These are the hints, timeboosts, and skips
+    skipButton:draw()
+    hintButton:draw()
+    timeBoostButton:draw()
+    text("Hints: "..amountofhints, 50, 540)
+    text("Time Boost: ".. amountoftimeboost, 90, 400)
+    text("Skip: ".. amountofskipquestion, 45,255)  
+    --This is to show the hint on the screen
+    if (showHint == true) then
+        -- show the text
+        text(mathOperationText,375,600)
+    end
 end
 
 function Normal:touched(touch)
+    
     moveBackButton:touched(touch)
     addingButton:touched(touch) 
     subtractButton:touched(touch)
     multiplyButton:touched(touch)
+    skipButton:touched(touch)
+    hintButton:touched(touch)
+    timeBoostButton:touched(touch)
     
     if(addingButton.selected == true) then
         if (mathOperationText == "+")then
             print("correct")
-           -- Scene.Change("correctnormal")     
-            Scene.Change("normal")
+            Scene.Change("correctnormal")     
             amountofcoins = amountofcoins + 20
         else
             print("wrong") 
-            Scene.Change("normal")
-            --Scene.Change("wrongnormal")
+            Scene.Change("wrongnormal")
         end
     end
+    
     if(subtractButton.selected == true) then
         if (mathOperationText == "-")then
-           -- Scene.Change("correctnormal")  
-            Scene.Change("normal")
+            Scene.Change("correctnormal")  
             amountofcoins = amountofcoins + 20 
         else
-            --Scene.Change("wrongnormal")
-            Scene.Change("normal")
+            Scene.Change("wrongnormal")
         end
     end
     
       if(multiplyButton.selected == true) then
         if (mathOperationText == "*")then
-            Scene.Change("normal")
-           -- Scene.Change("correctnormal")   
+              Scene.Change("correctnormal")   
               amountofcoins = amountofcoins + 20
         else
-            --Scene.Change("wrongnormal")
-            Scene.Change("normal")
+            Scene.Change("wrongnormal")
         end
     end 
         
@@ -142,5 +158,29 @@ function Normal:touched(touch)
         Scene.Change("maingame")
     end
     
-
+    if(skipButton.selected == true)then
+        if(amountofskipquestion >= 1)then
+            Scene.Change("normal")
+            amountofskipquestion = amountofskipquestion - 1
+            amountofcoins = amountofcoins + 5
+            saveLocalData("coins", amountofcoins)
+            saveLocalData("skip", amountofskipquestion)
+            end
+        end
+    
+    if(hintButton.selected == true) then
+        if(amountofhints >= 1)then
+            showHint = true
+            amountofhints = amountofhints - 1
+            saveLocalData("hints", amountofhints)
+        end
+    end
+    
+    if(timeBoostButton.selected == true)then
+        if(amountoftimeboost >= 1) then
+            endTime = endTime + 30
+            amountoftimeboost = amountoftimeboost - 1
+            saveLocalData("time", amountoftimeboost)
+        end
+    end
 end

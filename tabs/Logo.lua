@@ -16,9 +16,11 @@ function Logo:draw()
         print("The end time is" .. ElapsedTime)
     end
 end
+
 function Logo:init()
     startTime = ElapsedTime
 end
+
 function Logo:touched(touch)
     -- Codea does not automatically call this method
 end
