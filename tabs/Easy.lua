@@ -1,12 +1,8 @@
---Easy
+-- Easy
 -- Created by: Margaret Venes
 -- Created on: Dec 2015
 -- Created for: ICS2O
 -- This is the easy level scene
-
--- Up
-
---points[1] = points[1] + 5
 
 Easy = class()
 
@@ -18,14 +14,19 @@ local mathOperationText
 local addingButton
 local buttonAnswer
 local subtractButton
- 
+local showHint
+
 function Easy:init()
-    -- you can accept and set parameters here
+    
+    showHint = false
     startTime = ElapsedTime
     moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(60, 710))
-    addingButton = Button("Dropbox:FunMath Plus Sign",vec2(400,100))
-    subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(600,100))
-
+    addingButton = Button("Dropbox:FunMath Plus Sign",vec2(400,300))
+    subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(600,300))
+    skipButton = Button("Dropbox:Red Forward Circle Button",vec2(730,100))
+    hintButton= Button("Dropbox:Blue Forward Circle Button",vec2(500,100))
+    timeBoostButton= Button("Dropbox:Green Forward Circle Button",vec2(250,100))
+    --This is the code that will give random numbers and functions
     firstNumber=math.random(10)
     print("firstNumbber ",firstNumber)
     
@@ -34,6 +35,7 @@ function Easy:init()
     
     op=math.random(2)
     print("op ",op)
+    
     if(op == 1 )then
         mathOperationText = "+"
         answer=firstNumber+secNumber 
@@ -41,7 +43,7 @@ function Easy:init()
     elseif (op == 2)then
         mathOperationText = "-"
         answer = firstNumber - secNumber 
-        if (answer < 0)then
+    if (answer < 0)then
             print("negative number")
             print (firstNumber .. " " .. secNumber)
             local tempNumber
@@ -49,73 +51,119 @@ function Easy:init()
             secNumber = firstNumber
             firstNumber = tempNumber
             answer = firstNumber - secNumber
-            print(firstNumber .. secNumber)
-            
-        end
-            
+            print(firstNumber .. secNumber)            
+        end           
     end
 end
-
 
 function Easy:draw()
     -- Codea does not automatically call this method
     background(255, 255, 255, 255)
+    --These are the buttons
     moveBackButton:draw()
+    addingButton:draw()
+    subtractButton:draw()
     print(answer)
     print(firstNumber)
     print(secNumber)
     print(op)
-    fontSize(50)
+    fontSize(100)
     fill(0, 0, 0, 255)
-    text(firstNumber,300,600)
-    text(secNumber,450,600)
-    text("=",550,600)
-    text(answer,650,600)
-    text("$"..amountofcoins,500, 300)
+    font("AppleColorEmoji")
+    --This is the problem that will show up for the game
+    text(firstNumber,310,450)
+    text(secNumber,510,450)
+    text("?", 420, 450)
+    text("=",610,450)
+    text(answer,710,450)
+    fontSize(50)
+    fill(59, 59, 59, 255)
+    text("$"..amountofcoins,900, 700)
+    amountofcoins = readLocalData("coins", 0)
+    --This is the time for the game
+    fontSize(30)
     currentTime = endTime - (ElapsedTime)
     print ("current time " .. currentTime)
-    if (currentTime > 0) then
-    --currentTime = endTime - (ElapsedTime)    
+    if (currentTime > 0) then  
     else
         currentTime = 0
         Scene.Change("endscreennormal")            
     end
-    addingButton:draw()
-    subtractButton:draw()
     text ("Time left: " .. math.floor(currentTime), 512, 700)
+    --These are the hints, timeboosts, and skips
+    skipButton:draw()
+    hintButton:draw()
+    timeBoostButton:draw()
+    fontSize(20)
+    text("Hints: "..amountofhints, 480, 180)
+    text("Time Boost: ".. amountoftimeboost, 230, 180)
+    text("Skip: ".. amountofskipquestion, 720,180)  
+    --This is to show the hint on the screen
+    if (showHint == true) then
+        -- show the text
+        text(mathOperationText,375,600)
+    end
 end
 
 function Easy:touched(touch)
-    -- Codea does not automatically call this method
+    
     moveBackButton:touched(touch)
     addingButton:touched(touch) 
     subtractButton:touched(touch)
+    skipButton:touched(touch)
+    hintButton:touched(touch)
+    timeBoostButton:touched(touch)
     
     if(addingButton.selected == true) then
         if (mathOperationText == "+")then
-            print("correct")
-            Scene.Change("easy")
-           -- points[1] = points[1]+5    
+            print("correct") 
+            Scene.Change("righteasy")   
             amountofcoins = amountofcoins + 5
+            saveLocalData("coins", amountofcoins)
         else
             print("wrong")  
-            Scene.Change("easy")
-           -- points[1] = points[1]-5
+            Scene.Change("wrongeasy")
         end
     end
+    
     if(subtractButton.selected == true) then
         if (mathOperationText == "-")then
-            Scene.Change("easy")    
+             Scene.Change("righteasy")
              amountofcoins = amountofcoins + 5
+            saveLocalData("coins", amountofcoins)
         else
-            Scene.Change("easy")
+            Scene.Change("wrongeasy")
         end
     end
-   -- elseif (subtractButton.selected == true and mathOperationText == "-")then
-        --print"correct"
-      --  Scene.Change("right")
-    --end     
+
     if(moveBackButton.selected == true) then
         Scene.Change("maingame")
-    end  
+    end
+    
+    if(skipButton.selected == true)then
+        if(amountofskipquestion >= 1)then
+            Scene.Change("easy")
+            amountofskipquestion = amountofskipquestion - 1
+            amountofcoins = amountofcoins + 5
+            saveLocalData("coins", amountofcoins)
+            saveLocalData("skip", amountofskipquestion)
+        end
+    end
+    
+    if(hintButton.selected == true) then
+        if(amountofhints >= 1)then
+            showHint = true
+            amountofhints = amountofhints - 1
+            saveLocalData("hints", amountofhints)
+        end
+    end
+    
+    if(timeBoostButton.selected == true)then
+        if(amountoftimeboost >= 1) then
+            endTime = endTime + 30
+            amountoftimeboost = amountoftimeboost - 1
+            saveLocalData("time", amountoftimeboost)
+        end
+    end
+    
 end

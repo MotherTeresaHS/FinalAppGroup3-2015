@@ -7,16 +7,15 @@
 -- Use this function to perform your initial setup
 
 --difficultyLevel = nil
-
-amountofcoins = 0
-amountofhints = 0
-amountoftimeboost = 0
-amountofskipquestion = 0 
-
+DEBUG_GAMECENTER = true
+amountofcoins = nil
+--amountofcoins = 0
+amountofhints = nil
+amountoftimeboost = nil
+amountofskipquestion = nil
 countDown = 0
 startTime = 0
 endTime = 0
-
 function setup()
     supportedOrientations(LANDSCAPE_ANY)
     displayMode(FULLSCREEN)
@@ -24,6 +23,11 @@ function setup()
     noSmooth()
     noStroke()
     pushStyle()
+    
+    amountofcoins = readLocalData("coins", 0)
+    amountofhints = readLocalData("hints", 0)
+    amountoftimeboost = readLocalData("time", 0)
+    amountofskipquestion = readLocalData("skip", 0)
     
 -- Create the scenes (code for it)
 -- The scene names
@@ -48,9 +52,13 @@ function setup()
     Scene("correctnormal",CorrectNormal)
     Scene("correcthard",CorrectHard)
     Scene("wrongeasy",WrongEasy)
+    Scene("righteasy", RightEasy)
     Scene("wrongnormal",WrongNormal)
     Scene("wronghard",WrongHard)
     Scene("endscreennormal", EndScreenNormal)
+    Scene("screen", Screen)
+    Scene("tutorialone", TutorialOne)
+    Scene("tutorialtwo", TutorialTwo)
     
     --ANDRE AND LUCA this is the scene names for the achievements and leaderboard
     
@@ -62,7 +70,6 @@ function setup()
     Scene("easy", Easy)
     Scene("normal", Normal)
     Scene("hard", Hard)
-    
     Scene.Change("splash")
 end
 

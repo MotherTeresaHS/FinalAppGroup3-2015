@@ -15,7 +15,7 @@ function MainGame:init()
     easy = Button("Dropbox:EasyButton Photoshop", vec2(200, 500))
     normal = Button("Dropbox:NormalButton Photoshop", vec2(780, 500))
     hard = Button("Dropbox:Hard Button Photoshop", vec2(500, 300))
-    leaderboard = Button("Dropbox:LeaderBoardsIcon", vec2(950, 700))
+    --leaderboard = Button("Dropbox:LeaderBoardsIcon", vec2(950, 700))
 end
 
 function MainGame:draw()
@@ -32,17 +32,16 @@ function MainGame:draw()
     easy:draw()
     normal:draw()
     hard:draw()
-    leaderboard:draw()
+    --leaderboard:draw()
 end
 
 function MainGame:touched(touch)
-
-    
+      
     easy:touched(touch)
     normal:touched(touch)
     hard:touched(touch)
     back:touched(touch)
-    leaderboard:touched(touch)
+   -- leaderboard:touched(touch)
     
     --The easy button goes to the easy scene 
      if (easy.selected == true) then
@@ -54,6 +53,7 @@ function MainGame:touched(touch)
         Scene.Change("easy")
     end
     --The medium button goes to the medium scene
+    
     if (normal.selected == true) then
       --  difficultyLevel = "normal"
         countDown = 60 * 2

@@ -1,10 +1,10 @@
--- WrongHard
+-- RightEasy
 -- Created by: Margaret Venes
 -- Created on: January 2016
 -- Created for: ICS2O
--- This is the scene where the screen goes red if the user inputs the wrong answer.
+-- This is the scene if the user gets the answer right. The screen turns green.
 
-WrongHard = class()
+RightEasy = class()
 
 local answer
 local firstNumber
@@ -14,35 +14,30 @@ local mathOperationText
 local addingButton
 local buttonAnswer
 local subtractButton
-local multiplyButton
-local divisionButton
-local temp
 local showHint
 
-function WrongHard:init()
-    
+function RightEasy:init()
+    -- you can accept and set parameters here
     showHint = false
     startTime = ElapsedTime
     moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(60, 710))
-    addingButton = Button("Dropbox:FunMath Plus Sign",vec2(370,100))
-    subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(520,100))
-    multiplyButton = Button("Dropbox:FunMath Multiplication Sign",vec2(670,100)) 
-    divisionButton = Button("Dropbox:FunMath Division Sign",vec2(820,100))
+    addingButton = Button("Dropbox:FunMath Plus Sign",vec2(400,100))
+    subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(600,100))
     skipButton = Button("Dropbox:Red Forward Circle Button",vec2(60,180))
     hintButton= Button("Dropbox:Blue Forward Circle Button",vec2(60,470))
     timeBoostButton= Button("Dropbox:Green Forward Circle Button",vec2(60,330))
     --This is the code that will give random numbers and functions
-    firstNumber=math.random(99)
+    firstNumber=math.random(10)
     print("firstNumbber ",firstNumber)
     
-    secNumber=math.random(99)
+    secNumber=math.random(10)
     print("secNumber ",secNumber)
     
-    op=math.random(4)
+    op=math.random(2)
     print("op ",op)
     if(op == 1 )then
         mathOperationText = "+"
-        answer = firstNumber+secNumber 
+        answer=firstNumber+secNumber 
      
     elseif (op == 2)then
         mathOperationText = "-"
@@ -55,42 +50,32 @@ function WrongHard:init()
             secNumber = firstNumber
             firstNumber = tempNumber
             answer = firstNumber - secNumber
-            print(firstNumber .. secNumber)
-        end
-        
-    elseif (op == 3)then
-        mathOperationText = "*"
-        answer=firstNumber*secNumber 
-        
-    elseif (op == 4)then
-        mathOperationText = "/"
-        temp = firstNumber*secNumber
-        firstNumber=temp
-        answer=firstNumber/secNumber 
+            print(firstNumber .. secNumber)            
+        end           
     end
 end
 
-function WrongHard:draw()
+
+function RightEasy:draw()
     -- Codea does not automatically call this method
-    background(255, 43, 0, 255)
+    background(46, 255, 0, 255)
+    --These are the buttons
     moveBackButton:draw()
     addingButton:draw()
     subtractButton:draw()
-    multiplyButton:draw()
-    divisionButton:draw()
     print(answer)
     print(firstNumber)
     print(secNumber)
     print(op)
     fontSize(100)
     fill(0, 0, 0, 255)
-    font("SourceSansPro-Bold")
+    font("AppleColorEmoji")
     --This is the problem that will show up for the game
-    text(firstNumber,330,450)
-    text(secNumber,560,450)
-    text("?", 460, 450)
-    text("=",660,450)
-    text(answer,790,450)
+    text(firstNumber,310,450)
+    text(secNumber,510,450)
+    text("?", 420, 450)
+    text("=",610,450)
+    text(answer,710,450)
     fontSize(50)
     fill(59, 59, 59, 255)
     text("$"..amountofcoins,900, 700)
@@ -108,9 +93,9 @@ function WrongHard:draw()
     skipButton:draw()
     hintButton:draw()
     timeBoostButton:draw()
-    text("Hints: "..amountofhints, 50, 540)
-    text("Time Boost: ".. amountoftimeboost, 90, 400)
-    text("Skip: ".. amountofskipquestion, 45,255)  
+    text("Hints: "..amountofhints, 80, 540)
+    text("Time Boost: ".. amountoftimeboost, 130, 400)
+    text("Skip: ".. amountofskipquestion, 70,250)  
     --This is to show the hint on the screen
     if (showHint == true) then
         -- show the text
@@ -118,68 +103,50 @@ function WrongHard:draw()
     end
 end
 
-function WrongHard:touched(touch)
+function RightEasy:touched(touch)
     -- Codea does not automatically call this method
     moveBackButton:touched(touch)
     addingButton:touched(touch) 
     subtractButton:touched(touch)
-    multiplyButton:touched(touch)
-    divisionButton:touched(touch)
     skipButton:touched(touch)
     hintButton:touched(touch)
     timeBoostButton:touched(touch)
-        
+    
     if(addingButton.selected == true) then
         if (mathOperationText == "+")then
-            print("correct")
-            Scene.Change("correcthard") 
-            amountofcoins = amountofcoins + 40         
+            print("correct") 
+            Scene.Change("righteasy")
+           -- points[1] = points[1]+5    
+            amountofcoins = amountofcoins + 5
         else
-            print("wrong") 
-            Scene.Change("wronghard") 
+            print("wrong")  
+            Scene.Change("wrongeasy")
+           -- points[1] = points[1]-5
         end
     end
     
     if(subtractButton.selected == true) then
         if (mathOperationText == "-")then
-            Scene.Change("correcthard")  
-            amountofcoins = amountofcoins + 40  
+            Scene.Change("righteasy")
+             amountofcoins = amountofcoins + 5
         else
-            Scene.Change("wronghard") 
+            Scene.Change("wrongeasy")
         end
     end
-    
-      if(multiplyButton.selected == true) then
-        if (mathOperationText == "*")then
-            Scene.Change("correcthard")    
-            amountofcoins = amountofcoins + 40   
-        else
-            Scene.Change("wronghard")
-        end
-    end
-    
-    if(divisionButton.selected == true) then
-        if (mathOperationText == "/")then
-            Scene.Change("correcthard")    
-                amountofcoins = amountofcoins + 40 
-        else
-            Scene.Change("wronghard")
-        end
-    end     
-        
+
     if(moveBackButton.selected == true) then
         Scene.Change("maingame")
     end
     
     if(skipButton.selected == true)then
         if(amountofskipquestion >= 1)then
-            Scene.Change("hard")
+            Scene.Change("easy")
             amountofskipquestion = amountofskipquestion - 1
             amountofcoins = amountofcoins + 5
             saveLocalData("coins", amountofcoins)
             saveLocalData("skip", amountofskipquestion)
-            end
         end
+    end
     
     if(hintButton.selected == true) then
         if(amountofhints >= 1)then
@@ -192,7 +159,7 @@ function WrongHard:touched(touch)
     if(timeBoostButton.selected == true)then
         if(amountoftimeboost >= 1) then
             endTime = endTime + 30
-            amountoftimeboost = amountoftimeboost - 1
+            amountoftimeboost = amountoftimeboost - 1   
             saveLocalData("time", amountoftimeboost)
         end
     end

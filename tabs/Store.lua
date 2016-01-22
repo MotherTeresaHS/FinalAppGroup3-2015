@@ -66,6 +66,7 @@ function Store:draw()
    fontSize(60)
    text("Upgrades", 500, 590)  
    text("$"..amountofcoins, 500, 50)
+   saveLocalData("coins", amountofcoins)
    fontSize(40)
    text("Hints:".. amountofhints, 105, 500)
    text("Time Boost:".. amountoftimeboost, 125, 350)
@@ -89,6 +90,8 @@ function Store:touched(touch)
        if(amountofcoins>=100)then
            amountofcoins=amountofcoins - 100
            amountofhints=amountofhints + 1
+           saveLocalData("coins", amountofcoins)
+           saveLocalData("hints", amountofhints)
        else
            alert("Not enough coins", "Can't buy Hints")
 
@@ -99,6 +102,9 @@ function Store:touched(touch)
        if(amountofcoins>=200)then
            amountofcoins=amountofcoins-200
            amountoftimeboost=amountoftimeboost+1
+           saveLocalData("coins", amountofcoins)
+           saveLocalData("time", amountoftimeboost)
+           
        else
            alert("Not Enough Coins", "Can't Buy Time Boost")
 
@@ -109,6 +115,8 @@ function Store:touched(touch)
        if(amountofcoins>=300)then
            amountofcoins=amountofcoins-300
            amountofskipquestion=amountofskipquestion+1
+           saveLocalData("coins", amountofcoins)
+           saveLocalData("skip", amountofskipquestion)
        else
            alert("Not Enough Coins", "Can't Buy Skip Question")
        end
