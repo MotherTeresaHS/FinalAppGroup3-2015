@@ -10,7 +10,7 @@ function EndScreenNormal:draw()
     fontSize(50)
     fill(255, 255, 255, 255)
     text("End game.",500,450)
-    text("The amount of money you have is $"..amountofcoins, 500, 350)
+    text("The amount of money you have is $"..math.floor(amountofcoins), 500, 350)
     moveBackButton:draw()
 
 end

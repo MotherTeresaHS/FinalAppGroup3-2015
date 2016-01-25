@@ -4,7 +4,7 @@
 -- Created for: ICS2O
 -- This is the code names for the scenes
 
-DEBUG_GAMECENTER = true
+DEBUG_GAMECENTER = false
 amountofcoins = nil
 --amountofcoins = 0
 amountofhints = nil
@@ -14,21 +14,19 @@ countDown = 0
 startTime = 0
 endTime = 0
 function setup()
-    
+    --Scene names
     supportedOrientations(LANDSCAPE_ANY)
     displayMode(FULLSCREEN)
     noFill()
     noSmooth()
     noStroke()
     pushStyle()
-    
     amountofcoins = readLocalData("coins", 0)
     amountofhints = readLocalData("hints", 0)
     amountoftimeboost = readLocalData("time", 0)
     amountofskipquestion = readLocalData("skip", 0)
-    
--- Create the scenes (code for it)
--- The scene names
+    -- Create the scenes (code for it)
+    -- The scene names
     Scene("splash", SplashScreenScene)
     Scene("gamelogo", Logo)
     Scene("main", MainScreen)
