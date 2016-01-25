@@ -69,16 +69,16 @@ function Easy:draw()
     print(op)
     fontSize(100)
     fill(0, 0, 0, 255)
-    font("AppleColorEmoji")
+    font("Futura-Medium")
     --This is the problem that will show up for the game
-    text(firstNumber,310,450)
-    text(secNumber,510,450)
-    text("?", 420, 450)
-    text("=",610,450)
-    text(answer,710,450)
+    text(firstNumber,310,480)
+    text(secNumber,510,480)
+    text("?", 420, 480)
+    text("=",610,480)
+    text(answer,720,480)
     fontSize(50)
     fill(59, 59, 59, 255)
-    text("$"..amountofcoins,900, 700)
+    text("$"..math.floor(amountofcoins),900, 700)
     amountofcoins = readLocalData("coins", 0)
     --This is the time for the game
     fontSize(30)
@@ -89,19 +89,20 @@ function Easy:draw()
         currentTime = 0
         Scene.Change("endscreennormal")            
     end
-    text ("Time left: " .. math.floor(currentTime), 512, 700)
+    text ("Time left: " ..math.floor(currentTime), 512, 700)
     --These are the hints, timeboosts, and skips
     skipButton:draw()
     hintButton:draw()
     timeBoostButton:draw()
     fontSize(20)
-    text("Hints: "..amountofhints, 480, 180)
-    text("Time Boost: ".. amountoftimeboost, 230, 180)
-    text("Skip: ".. amountofskipquestion, 720,180)  
+    text("Hints: "..math.floor(amountofhints), 480, 180)
+    text("Time Boost: ".. math.floor(amountoftimeboost), 230, 180)
+    text("Skip: ".. math.floor(amountofskipquestion), 720,180)  
     --This is to show the hint on the screen
+    fontSize(30)
     if (showHint == true) then
         -- show the text
-        text(mathOperationText,375,600)
+        text(mathOperationText,420,600)
     end
 end
 
@@ -130,7 +131,7 @@ function Easy:touched(touch)
         if (mathOperationText == "-")then
              Scene.Change("righteasy")
              amountofcoins = amountofcoins + 5
-            saveLocalData("coins", amountofcoins)
+             saveLocalData("coins", amountofcoins)
         else
             Scene.Change("wrongeasy")
         end

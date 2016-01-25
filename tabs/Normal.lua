@@ -22,12 +22,12 @@ function Normal:init()
     showHint = false
     startTime = ElapsedTime
     moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(60, 710))
-    addingButton = Button("Dropbox:FunMath Plus Sign",vec2(370,100))
-    subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(520,100))
-    multiplyButton = Button("Dropbox:FunMath Multiplication Sign",vec2(670,100)) 
-    skipButton = Button("Dropbox:Red Forward Circle Button",vec2(60,180))
-    hintButton= Button("Dropbox:Blue Forward Circle Button",vec2(60,470))
-    timeBoostButton= Button("Dropbox:Green Forward Circle Button",vec2(60,330))
+    addingButton = Button("Dropbox:FunMath Plus Sign",vec2(340,300))
+    subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(500,300))
+    multiplyButton = Button("Dropbox:FunMath Multiplication Sign",vec2(670,300)) 
+    skipButton = Button("Dropbox:Red Forward Circle Button",vec2(730,100))
+    hintButton= Button("Dropbox:Blue Forward Circle Button",vec2(500,100))
+    timeBoostButton= Button("Dropbox:Green Forward Circle Button",vec2(250,100))
     --This is the code that will give random numbers and functions
     firstNumber=math.random(20)
     print("firstNumbber ",firstNumber)
@@ -83,14 +83,14 @@ function Normal:draw()
     fill(0, 0, 0, 255)
     font("SourceSansPro-Regular")
     --This is the problem that will show up for the game
-    text(firstNumber,310,450)
-    text(secNumber,510,450)
-    text("?", 420, 450)
-    text("=",610,450)
-    text(answer,710,450)
+    text(firstNumber,310,480)
+    text(secNumber,510,480)
+    text("?", 420, 480)
+    text("=",610,480)
+    text(answer,710,480)
     fontSize(50)
     fill(59, 59, 59, 255)
-    text("$"..amountofcoins,900, 700)
+    text("$"..math.floor(amountofcoins),900, 700)
     --This is the time for the game
     fontSize(30)
     currentTime = endTime - (ElapsedTime)
@@ -105,9 +105,10 @@ function Normal:draw()
     skipButton:draw()
     hintButton:draw()
     timeBoostButton:draw()
-    text("Hints: "..amountofhints, 50, 540)
-    text("Time Boost: ".. amountoftimeboost, 90, 400)
-    text("Skip: ".. amountofskipquestion, 45,255)  
+    fontSize(20)
+    text("Hints: "..math.floor(amountofhints), 480, 180)
+    text("Time Boost: ".. math.floor(amountoftimeboost), 230, 180)
+    text("Skip: ".. math.floor(amountofskipquestion), 720,180)  
     --This is to show the hint on the screen
     if (showHint == true) then
         -- show the text
@@ -130,6 +131,7 @@ function Normal:touched(touch)
             print("correct")
             Scene.Change("correctnormal")     
             amountofcoins = amountofcoins + 20
+            saveLocalData("coins", amountofcoins)
         else
             print("wrong") 
             Scene.Change("wrongnormal")
@@ -140,6 +142,7 @@ function Normal:touched(touch)
         if (mathOperationText == "-")then
             Scene.Change("correctnormal")  
             amountofcoins = amountofcoins + 20 
+            saveLocalData("coins", amountofcoins)
         else
             Scene.Change("wrongnormal")
         end
@@ -149,6 +152,7 @@ function Normal:touched(touch)
         if (mathOperationText == "*")then
               Scene.Change("correctnormal")   
               amountofcoins = amountofcoins + 20
+              saveLocalData("coins", amountofcoins)
         else
             Scene.Change("wrongnormal")
         end

@@ -9,10 +9,7 @@ Settings = class()
 local storeScreen
 
 function Settings:init()
- --This button moves back to the main menu
-   -- sprite("Dropbox:No Sound Icon")
-   -- sprite("Dropbox:Sound Icon")
-   -- sprite("Dropbox:Blue Move Scene Forward Button")
+    --This button moves back to the main menu
     moveBackButton = Button("Dropbox:Blue Back Circle Button", vec2(60, 710))
     onButton = Button("Dropbox:Sound Icon", vec2(250, 500))
     offButton = Button("Dropbox:No Sound Icon", vec2(700, 500))

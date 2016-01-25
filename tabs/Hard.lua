@@ -24,13 +24,13 @@ function Hard:init()
     showHint = false
     startTime = ElapsedTime
     moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(60, 710))
-    addingButton = Button("Dropbox:FunMath Plus Sign",vec2(370,100))
-    subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(520,100))
-    multiplyButton = Button("Dropbox:FunMath Multiplication Sign",vec2(670,100)) 
-    divisionButton = Button("Dropbox:FunMath Division Sign",vec2(820,100))
-    skipButton = Button("Dropbox:Red Forward Circle Button",vec2(60,180))
-    hintButton= Button("Dropbox:Blue Forward Circle Button",vec2(60,470))
-    timeBoostButton= Button("Dropbox:Green Forward Circle Button",vec2(60,330))
+    addingButton = Button("Dropbox:FunMath Plus Sign",vec2(250,300))
+    subtractButton = Button("Dropbox:FunMath Subtraction Sign",vec2(395,300))
+    multiplyButton = Button("Dropbox:FunMath Multiplication Sign",vec2(565,300)) 
+    divisionButton = Button("Dropbox:FunMath Division Sign",vec2(730,300))
+    skipButton = Button("Dropbox:Red Forward Circle Button",vec2(730,100))
+    hintButton= Button("Dropbox:Blue Forward Circle Button",vec2(500,100))
+    timeBoostButton= Button("Dropbox:Green Forward Circle Button",vec2(250,100))
     --This is the code that will give random numbers and functions
     firstNumber=math.random(99)
     print("firstNumbber ",firstNumber)
@@ -84,16 +84,16 @@ function Hard:draw()
     print(op)
     fontSize(100)
     fill(0, 0, 0, 255)
-    font("SourceSansPro-Bold")
+    font("Vegur")
     --This is the problem that will show up for the game
-    text(firstNumber,330,450)
-    text(secNumber,560,450)
-    text("?", 460, 450)
-    text("=",660,450)
-    text(answer,790,450)
+    text(firstNumber,160,480)
+    text(secNumber,540,480)
+    text("?", 370, 480)
+    text("=",680,480)
+    text(math.floor(answer),810,480)
     fontSize(50)
     fill(59, 59, 59, 255)
-    text("$"..amountofcoins,900, 700)
+    text("$"..math.floor(amountofcoins),900, 700)
     --This is the time for the game
     fontSize(30)
     currentTime = endTime - (ElapsedTime)
@@ -108,9 +108,10 @@ function Hard:draw()
     skipButton:draw()
     hintButton:draw()
     timeBoostButton:draw()
-    text("Hints: "..amountofhints, 50, 540)
-    text("Time Boost: ".. amountoftimeboost, 90, 400)
-    text("Skip: ".. amountofskipquestion, 45,255)  
+    fontSize(20)
+    text("Hints: "..math.floor(amountofhints), 480, 180)
+    text("Time Boost: ".. math.floor(amountoftimeboost), 230, 180)
+    text("Skip: ".. math.floor(amountofskipquestion), 720,180)  
     --This is to show the hint on the screen
     if (showHint == true) then
         -- show the text
@@ -134,6 +135,7 @@ function Hard:touched(touch)
             print("correct")
             Scene.Change("correcthard") 
             amountofcoins = amountofcoins + 40         
+            saveLocalData("coins", amountofcoins)
         else
             print("wrong") 
             Scene.Change("wronghard") 
@@ -144,6 +146,7 @@ function Hard:touched(touch)
         if (mathOperationText == "-")then
             Scene.Change("correcthard")  
             amountofcoins = amountofcoins + 40  
+            saveLocalData("coins", amountofcoins)
         else
             Scene.Change("wronghard") 
         end
@@ -153,6 +156,7 @@ function Hard:touched(touch)
         if (mathOperationText == "*")then
             Scene.Change("correcthard")    
             amountofcoins = amountofcoins + 40   
+            saveLocalData("coins", amountofcoins)
         else
             Scene.Change("wronghard")
         end
@@ -161,7 +165,8 @@ function Hard:touched(touch)
     if(divisionButton.selected == true) then
         if (mathOperationText == "/")then
             Scene.Change("correcthard")    
-                amountofcoins = amountofcoins + 40 
+            amountofcoins = amountofcoins + 40 
+            saveLocalData("coins", amountofcoins)
         else
             Scene.Change("wronghard")
         end

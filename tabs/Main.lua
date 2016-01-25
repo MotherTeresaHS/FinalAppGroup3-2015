@@ -4,9 +4,6 @@
 -- Created for: ICS2O
 -- This is the code names for the scenes
 
--- Use this function to perform your initial setup
-
---difficultyLevel = nil
 DEBUG_GAMECENTER = true
 amountofcoins = nil
 --amountofcoins = 0
@@ -17,6 +14,7 @@ countDown = 0
 startTime = 0
 endTime = 0
 function setup()
+    
     supportedOrientations(LANDSCAPE_ANY)
     displayMode(FULLSCREEN)
     noFill()

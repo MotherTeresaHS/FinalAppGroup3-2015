@@ -65,12 +65,12 @@ function Store:draw()
    fill(0, 0, 0, 255)
    fontSize(60)
    text("Upgrades", 500, 590)  
-   text("$"..amountofcoins, 500, 50)
+   text("$"..math.floor(amountofcoins), 500, 50)
    saveLocalData("coins", amountofcoins)
    fontSize(40)
-   text("Hints:".. amountofhints, 105, 500)
-   text("Time Boost:".. amountoftimeboost, 125, 350)
-   text("Skip:".. amountofskipquestion, 105, 200)
+   text("Hints:".. math.floor(amountofhints), 105, 500)
+   text("Time Boost:".. math.floor(amountoftimeboost), 125, 350)
+   text("Skip:".. math.floor(amountofskipquestion), 105, 200)
 
 end
 
