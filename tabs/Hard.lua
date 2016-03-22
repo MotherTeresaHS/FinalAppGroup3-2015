@@ -72,7 +72,15 @@ end
 
 function Hard:draw()
     -- Codea does not automatically call this method
-    background(255, 255, 255, 255)
+        
+    -- added by Mr. coxall, to remove right and wrong duplicate scenes
+    if (lastQuestionRight == true) then
+        background(0, 255, 0, 255)
+    elseif (lastQuestionRight == false) then
+        background(255, 0, 0, 255)
+    else
+        background(255, 255, 255, 255)
+    end
     moveBackButton:draw()
     addingButton:draw()
     subtractButton:draw()
@@ -132,43 +140,51 @@ function Hard:touched(touch)
         
     if(addingButton.selected == true) then
         if (mathOperationText == "+")then
-            print("correct")
-            Scene.Change("correcthard") 
+            print("correct") 
             amountofcoins = amountofcoins + 40         
             saveLocalData("coins", amountofcoins)
+            lastQuestionRight = true
+            Scene.Change("hard")
         else
             print("wrong") 
-            Scene.Change("wronghard") 
+            lastQuestionRight = false
+            Scene.Change("hard") 
         end
     end
     
     if(subtractButton.selected == true) then
-        if (mathOperationText == "-")then
-            Scene.Change("correcthard")  
+        if (mathOperationText == "-")then  
             amountofcoins = amountofcoins + 40  
             saveLocalData("coins", amountofcoins)
+            lastQuestionRight = true
+            Scene.Change("hard")
         else
-            Scene.Change("wronghard") 
+            lastQuestionRight = false
+            Scene.Change("hard") 
         end
     end
     
       if(multiplyButton.selected == true) then
-        if (mathOperationText == "*")then
-            Scene.Change("correcthard")    
+        if (mathOperationText == "*")then    
             amountofcoins = amountofcoins + 40   
             saveLocalData("coins", amountofcoins)
+            lastQuestionRight = true
+            Scene.Change("hard")
         else
-            Scene.Change("wronghard")
+            lastQuestionRight = false
+            Scene.Change("hard")
         end
     end
     
     if(divisionButton.selected == true) then
-        if (mathOperationText == "/")then
-            Scene.Change("correcthard")    
+        if (mathOperationText == "/")then    
             amountofcoins = amountofcoins + 40 
             saveLocalData("coins", amountofcoins)
+            lastQuestionRight = true
+            Scene.Change("hard")
         else
-            Scene.Change("wronghard")
+            lastQuestionRight = false
+            Scene.Change("hard")
         end
     end     
         
@@ -178,11 +194,12 @@ function Hard:touched(touch)
     
     if(skipButton.selected == true)then
         if(amountofskipquestion >= 1)then
-            Scene.Change("hard")
             amountofskipquestion = amountofskipquestion - 1
             amountofcoins = amountofcoins + 5
             saveLocalData("coins", amountofcoins)  
             saveLocalData("skip", amountofskipquestion)
+            lastQuestionRight = nil
+            Scene.Change("hard")
             end
         end
     

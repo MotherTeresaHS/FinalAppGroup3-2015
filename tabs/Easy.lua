@@ -58,7 +58,16 @@ end
 
 function Easy:draw()
     -- Codea does not automatically call this method
-    background(255, 255, 255, 255)
+    
+    -- added by Mr. coxall, to remove right and wrong duplicate scenes
+    if (lastQuestionRight == true) then
+        background(0, 255, 0, 255)
+    elseif (lastQuestionRight == false) then
+        background(255, 0, 0, 255)
+    else
+        background(255, 255, 255, 255)
+    end
+    
     --These are the buttons
     moveBackButton:draw()
     addingButton:draw()
@@ -117,23 +126,27 @@ function Easy:touched(touch)
     
     if(addingButton.selected == true) then
         if (mathOperationText == "+")then
-            print("correct") 
-            Scene.Change("righteasy")   
+            print("correct")    
             amountofcoins = amountofcoins + 5
             saveLocalData("coins", amountofcoins)
+            lastQuestionRight = true
+            Scene.Change("easy")
         else
             print("wrong")  
-            Scene.Change("wrongeasy")
+            lastQuestionRight = false
+            Scene.Change("easy")
         end
     end
     
     if(subtractButton.selected == true) then
         if (mathOperationText == "-")then
-             Scene.Change("righteasy")
              amountofcoins = amountofcoins + 5
              saveLocalData("coins", amountofcoins)
+            lastQuestionRight = true
+            Scene.Change("easy")
         else
-            Scene.Change("wrongeasy")
+            lastQuestionRight = false
+            Scene.Change("easy")
         end
     end
 
@@ -142,12 +155,13 @@ function Easy:touched(touch)
     end
     
     if(skipButton.selected == true)then
-        if(amountofskipquestion >= 1)then
-            Scene.Change("easy")
+        if(amountofskipquestion >= 1)then 
             amountofskipquestion = amountofskipquestion - 1
             amountofcoins = amountofcoins + 5
             saveLocalData("coins", amountofcoins)
             saveLocalData("skip", amountofskipquestion)
+            lastQuestionRight = nil
+            Scene.Change("easy")
         end
     end
     

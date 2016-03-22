@@ -13,10 +13,13 @@ amountofskipquestion = nil
 countDown = 0
 startTime = 0
 endTime = 0
+lastQuestionRight = nil
+
+
 function setup()
     --Scene names
     supportedOrientations(LANDSCAPE_ANY)
-    displayMode(FULLSCREEN)
+    displayMode(FULLSCREEN_NO_BUTTONS)
     noFill()
     noSmooth()
     noStroke()
@@ -44,13 +47,6 @@ function setup()
     Scene("threeplayers", ThreePlayers)
     Scene("fourplayers", FourPlayers)
     Scene("tutorial", Tutorial)
-    Scene("correcteasy",CorrectEasy)
-    Scene("correctnormal",CorrectNormal)
-    Scene("correcthard",CorrectHard)
-    Scene("wrongeasy",WrongEasy)
-    Scene("righteasy", RightEasy)
-    Scene("wrongnormal",WrongNormal)
-    Scene("wronghard",WrongHard)
     Scene("endscreennormal", EndScreenNormal)
     Scene("screen", Screen)
     Scene("tutorialone", TutorialOne)

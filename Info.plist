@@ -17,14 +17,8 @@
 		<string>Credits</string>
 		<string>MainGame</string>
 		<string>Easy</string>
-		<string>RightEasy</string>
-		<string>WrongEasy</string>
 		<string>Normal</string>
-		<string>CorrectNormal</string>
-		<string>WrongNormal</string>
 		<string>Hard</string>
-		<string>CorrectHard</string>
-		<string>WrongHard</string>
 		<string>EndScreen</string>
 		<string>Players</string>
 		<string>OnePlayer</string>

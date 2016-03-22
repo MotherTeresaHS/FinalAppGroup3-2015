@@ -2,6 +2,10 @@ EndScreenNormal = class()
 
 function EndScreenNormal:init()
     moveBackButton = Button("Dropbox:Teal Back Circle Button", vec2(500,100))
+    
+    if(gamecenter.enabled() == true) then
+        gamecenter.submitScore(math.floor(amountofcoins), "amountofcoins")
+    end
 end
 
 function EndScreenNormal:draw()

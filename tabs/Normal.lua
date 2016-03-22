@@ -70,7 +70,15 @@ end
 
 function Normal:draw()
     -- Codea does not automatically call this method
-    background(255, 255, 255, 255)
+    
+    -- added by Mr. coxall, to remove right and wrong duplicate scenes
+    if (lastQuestionRight == true) then
+        background(0, 255, 0, 255)
+    elseif (lastQuestionRight == false) then
+        background(255, 0, 0, 255)
+    else
+        background(255, 255, 255, 255)
+    end
     moveBackButton:draw()
     addingButton:draw()
     subtractButton:draw()
@@ -128,33 +136,39 @@ function Normal:touched(touch)
     
     if(addingButton.selected == true) then
         if (mathOperationText == "+")then
-            print("correct")
-            Scene.Change("correctnormal")     
+            print("correct")     
             amountofcoins = amountofcoins + 20
             saveLocalData("coins", amountofcoins)
+            lastQuestionRight = true
+            Scene.Change("normal")
         else
             print("wrong") 
-            Scene.Change("wrongnormal")
+            lastQuestionRight = false
+            Scene.Change("normal")
         end
     end
     
     if(subtractButton.selected == true) then
-        if (mathOperationText == "-")then
-            Scene.Change("correctnormal")  
+        if (mathOperationText == "-")then  
             amountofcoins = amountofcoins + 20 
             saveLocalData("coins", amountofcoins)
+            lastQuestionRight = true
+            Scene.Change("normal")
         else
-            Scene.Change("wrongnormal")
+            lastQuestionRight = false
+            Scene.Change("normal")
         end
     end
     
       if(multiplyButton.selected == true) then
-        if (mathOperationText == "*")then
-              Scene.Change("correctnormal")   
+        if (mathOperationText == "*")then   
               amountofcoins = amountofcoins + 20
               saveLocalData("coins", amountofcoins)
+            lastQuestionRight = true
+            Scene.Change("normal")
         else
-            Scene.Change("wrongnormal")
+            lastQuestionRight = false
+            Scene.Change("normal")
         end
     end 
         
@@ -163,12 +177,13 @@ function Normal:touched(touch)
     end
     
     if(skipButton.selected == true)then
-        if(amountofskipquestion >= 1)then
-            Scene.Change("normal")
+        if(amountofskipquestion >= 1)then      
             amountofskipquestion = amountofskipquestion - 1
             amountofcoins = amountofcoins + 5
             saveLocalData("coins", amountofcoins)
             saveLocalData("skip", amountofskipquestion)
+            lastQuestionRight = nil
+            Scene.Change("normal")
             end
         end
     
